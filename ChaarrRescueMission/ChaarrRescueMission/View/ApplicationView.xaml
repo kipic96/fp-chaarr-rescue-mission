@@ -1,0 +1,79 @@
+﻿<Window x:Class="ChaarrRescueMission.ApplicationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChaarrRescueMission"
+        xmlns:properties="clr-namespace:ChaarrRescueMission.Properties"
+        mc:Ignorable="d"
+        Title="Chaarr Rescue Mission"
+        Width="900"
+        MinWidth="900"
+        Height="600"
+        MinHeight="600"
+>
+    <Grid Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Name="LeftGrid" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--  <Label Grid.Column="0" Grid.Row="0" Content="{x:Static properties:Resources.CaptionTurn}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="{x:Static properties:Resources.CaptionLocation}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="{x:Static properties:Resources.CaptionEvents}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="{x:Static properties:Resources.CaptionLastTurnEvents}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="{x:Static properties:Resources.CaptionEquipments}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="{x:Static properties:Resources.CaptionLogBook}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="{x:Static properties:Resources.CaptionScore}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="{x:Static properties:Resources.CaptionScoreSurvivors}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="8" Content="{x:Static properties:Resources.CaptionScoreScience}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="9" Content="{x:Static properties:Resources.CaptionScoreCrewMalus}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="10" Content="{x:Static properties:Resources.CaptionScoreKnowledge}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="11" Content="{x:Static properties:Resources.CaptionScoreEvent}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="12" Content="{x:Static properties:Resources.CaptionScoreTotal}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="13" Content="{x:Static properties:Resources.CaptionParameters}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="14" Content="{x:Static properties:Resources.CaptionChaarrHatred}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="15" Content="{x:Static properties:Resources.CaptionKnowledge}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="16" Content="{x:Static properties:Resources.CaptionCrewDeaths}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="17" Content="{x:Static properties:Resources.CaptionSurvivorDeaths}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="18" Content="{x:Static properties:Resources.CaptionSavedScience}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="19" Content="{x:Static properties:Resources.CaptionSavedSurvivors}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="20" Content="{x:Static properties:Resources.CaptionPoludnicaMatter}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="21" Content="{x:Static properties:Resources.CaptionPoludnicaEnergy}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="21" Content="{x:Static properties:Resources.CaptionExpeditionMatter}" Style="{StaticResource LabelStyle}"/>
+            <Label Grid.Column="0" Grid.Row="21" Content="{x:Static properties:Resources.CaptionExpeditionEnergy}" Style="{StaticResource LabelStyle}"/>-->
+           <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding GameState.Turn}" Style="{StaticResource TextBoxStyle}"/> 
+        </Grid>
+        <Grid Name="RightGrid" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Command="{Binding Command}" Style="{StaticResource ButtonStyle}" Content="Click me"/>
+            <TextBox Grid.Row="5" Text="{Binding Json}" Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" ScrollViewer.CanContentScroll="True"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -7,7 +7,7 @@ namespace ChaarrRescueMission.Model.Entity
     {
         public string Turn { get; set; }
         public string Location { get; set; }
-        public IList<string> Events { get; set; }
+        public List<string> Events { get; set; }
         public IList<string> LastTurnEvents { get; set; }
         public IList<string> Equipments { get; set; }
         public IList<string> LogBook { get; set; }

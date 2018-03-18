@@ -45,60 +45,104 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.Row="0" Content="Turn" Style="{StaticResource LabelStyle}"/>
             <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding GameState.Turn}" Style="{StaticResource TextBoxStyle}"/>
             <Label Grid.Column="0" Grid.Row="1" Content="Location" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding GameState.Location}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="2" Content="Events" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding GameState.Events}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="3" Content="LastTurnEvents" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding GameState.LastTurnEvents}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="4" Content="Equipments" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding GameState.Equipments}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="5" Content="LogBook" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding GameState.LogBook}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="6" Content="SurvivorsScore" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding GameState.Scores.SurvivorsScore}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="7" Content="ScienceScore" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding GameState.Scores.ScienceScore}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="8" Content="CrewMalus" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding GameState.Scores.CrewMalus}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="9" Content="KnowledgeScore" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding GameState.Scores.KnowledgeScore}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="10" Content="EventScore" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding GameState.Scores.EventScore}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="11" Content="TotalScore" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding GameState.Scores.TotalScore}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="12" Content="ChaarrHatred" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding GameState.Parameters.ChaarrHatred}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="13" Content="Knowledge" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding GameState.Parameters.Knowledge}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="14" Content="CrewDeaths" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding GameState.Parameters.CrewDeaths}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="15" Content="SurvivorDeaths" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding GameState.Parameters.SurvivorDeaths}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="16" Content="SavedScience" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding GameState.Parameters.SavedScience}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="17" Content="SavedSurvivors" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding GameState.Parameters.SavedSurvivors}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="18" Content="PołudnicaMatter" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding GameState.Parameters.PołudnicaMatter}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="19" Content="PołudnicaEnergy" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="19" Text="{Binding GameState.Parameters.PołudnicaEnergy}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="20" Content="ExpeditionMatter" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="20" Text="{Binding GameState.Parameters.ExpeditionMatter}" Style="{StaticResource TextBoxStyle}"/>
-            <Label Grid.Column="0" Grid.Row="21" Content="ExpeditionEnergy" Style="{StaticResource LabelStyle}"/>
-            <TextBox Grid.Column="1" Grid.Row="21" Text="{Binding GameState.Parameters.ExpeditionEnergy}" Style="{StaticResource TextBoxStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding GameState.Location}" Style="{StaticResource TextBoxStyle}"/>        
+            <Label Grid.Column="0" Grid.Row="2" Content="SurvivorsScore" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding GameState.Scores.SurvivorsScore}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="ScienceScore" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding GameState.Scores.ScienceScore}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="CrewMalus" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding GameState.Scores.CrewMalus}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="5" Content="KnowledgeScore" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding GameState.Scores.KnowledgeScore}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="6" Content="EventScore" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding GameState.Scores.EventScore}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="7" Content="TotalScore" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding GameState.Scores.TotalScore}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="8" Content="ChaarrHatred" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding GameState.Parameters.ChaarrHatred}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="9" Content="Knowledge" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding GameState.Parameters.Knowledge}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="10" Content="CrewDeaths" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding GameState.Parameters.CrewDeaths}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="11" Content="SurvivorDeaths" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding GameState.Parameters.SurvivorDeaths}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="12" Content="SavedScience" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding GameState.Parameters.SavedScience}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="13" Content="SavedSurvivors" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding GameState.Parameters.SavedSurvivors}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="14" Content="PołudnicaMatter" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding GameState.Parameters.PołudnicaMatter}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="15" Content="PołudnicaEnergy" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding GameState.Parameters.PołudnicaEnergy}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="16" Content="ExpeditionMatter" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding GameState.Parameters.ExpeditionMatter}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="17" Content="ExpeditionEnergy" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding GameState.Parameters.ExpeditionEnergy}" Style="{StaticResource TextBoxStyle}"/>
+            <Label Grid.Column="0" Grid.Row="18" Content="IsTerminated" Style="{StaticResource LabelStyle}"/>
+            <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding GameState.IsTerminated}" Style="{StaticResource TextBoxStyle}"/>
         </Grid>
         <Grid Name="RightGrid" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Name="RightTopGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="Events" Style="{StaticResource LabelStyle}"/>
+                <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding GameState.Events}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding }" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label Grid.Column="0" Grid.Row="1" Content="LastTurnEvents" Style="{StaticResource LabelStyle}"/>
+                <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding GameState.LastTurnEvents}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding }" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label Grid.Column="0" Grid.Row="2" Content="Equipments" Style="{StaticResource LabelStyle}"/>
+                <ListBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding GameState.Equipments}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding }" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label Grid.Column="0" Grid.Row="3" Content="LogBook" Style="{StaticResource LabelStyle}"/>
+                <ListBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding GameState.LogBook}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding }" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
             <Button Grid.Row="1" Command="{Binding Command}" Style="{StaticResource ButtonStyle}" Content="Click me"/>
             <TextBox Grid.Row="5" Text="{Binding Json}" Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" ScrollViewer.CanContentScroll="True"/>
         </Grid>

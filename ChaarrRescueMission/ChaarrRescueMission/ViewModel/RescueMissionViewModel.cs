@@ -1,10 +1,9 @@
 ﻿using ChaarrRescueMission.ViewModel.Base;
 using ChaarrRescueMission.Model;
-using System.ComponentModel;
-using System.Threading;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using ChaarrRescueMission.Properties;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using ChaarrRescueMission.Model.Entity;
 
 namespace ChaarrRescueMission.ViewModel
 {
@@ -56,8 +55,10 @@ namespace ChaarrRescueMission.ViewModel
                         {
                             Json = _communicationManager.Send(new Cargo()
                             {
-                                Command = "Restart",
-                            });      
+                                Command = "RestartSimulation",
+                            });
+                            JToken gameStatusToken = JObject.Parse(Json);
+                            GameState = JsonConvert.DeserializeObject<GameState>(Json);
                         });
                 }
                 return _command;

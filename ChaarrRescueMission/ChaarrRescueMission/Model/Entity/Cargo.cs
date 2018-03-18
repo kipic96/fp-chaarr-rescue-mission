@@ -1,16 +1,13 @@
 ﻿using ChaarrRescueMission.Properties;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ChaarrRescueMission.Model
+namespace ChaarrRescueMission.Model.Entity
 {
     class Cargo
     {
+        [JsonProperty("Login")]
         private string _login = Resources.CaptionLogin;
+        [JsonProperty("Token")]
         private string _token = Resources.CaptionToken;
         public string Command { get; set; }
         //public string Parameter { get; set; }

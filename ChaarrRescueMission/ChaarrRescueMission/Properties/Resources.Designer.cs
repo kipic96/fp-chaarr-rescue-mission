@@ -70,7 +70,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chaarr Hatred.
+        ///   Looks up a localized string similar to chaarrHatred.
         /// </summary>
         internal static string CaptionChaarrHatred {
             get {
@@ -88,7 +88,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crew Deaths.
+        ///   Looks up a localized string similar to crewDeaths.
         /// </summary>
         internal static string CaptionCrewDeaths {
             get {
@@ -97,7 +97,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equipments.
+        ///   Looks up a localized string similar to equipments.
         /// </summary>
         internal static string CaptionEquipments {
             get {
@@ -106,7 +106,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Events.
+        ///   Looks up a localized string similar to events.
         /// </summary>
         internal static string CaptionEvents {
             get {
@@ -115,7 +115,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expedition Energy.
+        ///   Looks up a localized string similar to expeditionEnergy.
         /// </summary>
         internal static string CaptionExpeditionEnergy {
             get {
@@ -124,7 +124,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expedition Matter.
+        ///   Looks up a localized string similar to expeditionMatter.
         /// </summary>
         internal static string CaptionExpeditionMatter {
             get {
@@ -151,7 +151,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Knowledge.
+        ///   Looks up a localized string similar to knowledge.
         /// </summary>
         internal static string CaptionKnowledge {
             get {
@@ -160,7 +160,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Turn Events.
+        ///   Looks up a localized string similar to lastTurnEvents.
         /// </summary>
         internal static string CaptionLastTurnEvents {
             get {
@@ -169,7 +169,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location.
+        ///   Looks up a localized string similar to location.
         /// </summary>
         internal static string CaptionLocation {
             get {
@@ -178,7 +178,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log Book.
+        ///   Looks up a localized string similar to logBook.
         /// </summary>
         internal static string CaptionLogBook {
             get {
@@ -205,7 +205,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parameters.
+        ///   Looks up a localized string similar to parameters.
         /// </summary>
         internal static string CaptionParameters {
             get {
@@ -214,7 +214,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poludnica Energy.
+        ///   Looks up a localized string similar to poludnicaEnergy.
         /// </summary>
         internal static string CaptionPoludnicaEnergy {
             get {
@@ -223,7 +223,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poludnica Matter.
+        ///   Looks up a localized string similar to poludnicaMatter.
         /// </summary>
         internal static string CaptionPoludnicaMatter {
             get {
@@ -241,7 +241,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saved Science.
+        ///   Looks up a localized string similar to savedScience.
         /// </summary>
         internal static string CaptionSavedScience {
             get {
@@ -250,7 +250,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saved Survivors.
+        ///   Looks up a localized string similar to savedSurvivors.
         /// </summary>
         internal static string CaptionSavedSurvivors {
             get {
@@ -259,7 +259,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scores.
+        ///   Looks up a localized string similar to scores.
         /// </summary>
         internal static string CaptionScore {
             get {
@@ -268,7 +268,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crew Malus.
+        ///   Looks up a localized string similar to crewMalus.
         /// </summary>
         internal static string CaptionScoreCrewMalus {
             get {
@@ -277,7 +277,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Event Score.
+        ///   Looks up a localized string similar to eventScore.
         /// </summary>
         internal static string CaptionScoreEvent {
             get {
@@ -286,7 +286,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Knowledge Score.
+        ///   Looks up a localized string similar to knowledgeScore.
         /// </summary>
         internal static string CaptionScoreKnowledge {
             get {
@@ -295,7 +295,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Science Scores.
+        ///   Looks up a localized string similar to scienceScore.
         /// </summary>
         internal static string CaptionScoreScience {
             get {
@@ -304,7 +304,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Survivors Scores.
+        ///   Looks up a localized string similar to survivorsScore.
         /// </summary>
         internal static string CaptionScoreSurvivors {
             get {
@@ -313,7 +313,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Score.
+        ///   Looks up a localized string similar to totalScore.
         /// </summary>
         internal static string CaptionScoreTotal {
             get {
@@ -322,7 +322,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Survivor Deaths.
+        ///   Looks up a localized string similar to survivorDeaths.
         /// </summary>
         internal static string CaptionSurvivorDeaths {
             get {
@@ -331,7 +331,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saved Survivors.
+        ///   Looks up a localized string similar to savedSurvivors.
         /// </summary>
         internal static string CaptionSurvivors {
             get {
@@ -349,7 +349,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turn.
+        ///   Looks up a localized string similar to turn.
         /// </summary>
         internal static string CaptionTurn {
             get {

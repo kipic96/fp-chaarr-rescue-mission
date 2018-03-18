@@ -121,25 +121,25 @@
     <value>cache-control</value>
   </data>
   <data name="CaptionChaarrHatred" xml:space="preserve">
-    <value>Chaarr Hatred</value>
+    <value>chaarrHatred</value>
   </data>
   <data name="CaptionContentType" xml:space="preserve">
     <value>content-type</value>
   </data>
   <data name="CaptionCrewDeaths" xml:space="preserve">
-    <value>Crew Deaths</value>
+    <value>crewDeaths</value>
   </data>
   <data name="CaptionEquipments" xml:space="preserve">
-    <value>Equipments</value>
+    <value>equipments</value>
   </data>
   <data name="CaptionEvents" xml:space="preserve">
-    <value>Events</value>
+    <value>events</value>
   </data>
   <data name="CaptionExpeditionEnergy" xml:space="preserve">
-    <value>Expedition Energy</value>
+    <value>expeditionEnergy</value>
   </data>
   <data name="CaptionExpeditionMatter" xml:space="preserve">
-    <value>Expedition Matter</value>
+    <value>expeditionMatter</value>
   </data>
   <data name="CaptionGET" xml:space="preserve">
     <value>https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0</value>
@@ -148,16 +148,16 @@
     <value>application/json</value>
   </data>
   <data name="CaptionKnowledge" xml:space="preserve">
-    <value>Knowledge</value>
+    <value>knowledge</value>
   </data>
   <data name="CaptionLastTurnEvents" xml:space="preserve">
-    <value>Last Turn Events</value>
+    <value>lastTurnEvents</value>
   </data>
   <data name="CaptionLocation" xml:space="preserve">
-    <value>Location</value>
+    <value>location</value>
   </data>
   <data name="CaptionLogBook" xml:space="preserve">
-    <value>Log Book</value>
+    <value>logBook</value>
   </data>
   <data name="CaptionLogin" xml:space="preserve">
     <value>marcin.chilicki96@gmail.com</value>
@@ -166,54 +166,54 @@
     <value>no-cache</value>
   </data>
   <data name="CaptionParameters" xml:space="preserve">
-    <value>Parameters</value>
+    <value>parameters</value>
   </data>
   <data name="CaptionPoludnicaEnergy" xml:space="preserve">
-    <value>Poludnica Energy</value>
+    <value>poludnicaEnergy</value>
   </data>
   <data name="CaptionPoludnicaMatter" xml:space="preserve">
-    <value>Poludnica Matter</value>
+    <value>poludnicaMatter</value>
   </data>
   <data name="CaptionPOST" xml:space="preserve">
     <value>https://simulation.future-processing.pl/execute</value>
   </data>
   <data name="CaptionSavedScience" xml:space="preserve">
-    <value>Saved Science</value>
+    <value>savedScience</value>
   </data>
   <data name="CaptionSavedSurvivors" xml:space="preserve">
-    <value>Saved Survivors</value>
+    <value>savedSurvivors</value>
   </data>
   <data name="CaptionScore" xml:space="preserve">
-    <value>Scores</value>
+    <value>scores</value>
   </data>
   <data name="CaptionScoreCrewMalus" xml:space="preserve">
-    <value>Crew Malus</value>
+    <value>crewMalus</value>
   </data>
   <data name="CaptionScoreEvent" xml:space="preserve">
-    <value>Event Score</value>
+    <value>eventScore</value>
   </data>
   <data name="CaptionScoreKnowledge" xml:space="preserve">
-    <value>Knowledge Score</value>
+    <value>knowledgeScore</value>
   </data>
   <data name="CaptionScoreScience" xml:space="preserve">
-    <value>Science Scores</value>
+    <value>scienceScore</value>
   </data>
   <data name="CaptionScoreSurvivors" xml:space="preserve">
-    <value>Survivors Scores</value>
+    <value>survivorsScore</value>
   </data>
   <data name="CaptionScoreTotal" xml:space="preserve">
-    <value>Total Score</value>
+    <value>totalScore</value>
   </data>
   <data name="CaptionSurvivorDeaths" xml:space="preserve">
-    <value>Survivor Deaths</value>
+    <value>survivorDeaths</value>
   </data>
   <data name="CaptionSurvivors" xml:space="preserve">
-    <value>Saved Survivors</value>
+    <value>savedSurvivors</value>
   </data>
   <data name="CaptionToken" xml:space="preserve">
     <value>6C35BC6A4453674C7BA4E0A9E776BEF0</value>
   </data>
   <data name="CaptionTurn" xml:space="preserve">
-    <value>Turn</value>
+    <value>turn</value>
   </data>
 </root>

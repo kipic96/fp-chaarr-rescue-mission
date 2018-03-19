@@ -19,7 +19,7 @@ namespace ChaarrRescueMission.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,6 +61,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Asteroids.
+        /// </summary>
+        internal static string CaptionAsteroids {
+            get {
+                return ResourceManager.GetString("CaptionAsteroids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to cache-control.
         /// </summary>
         internal static string CaptionCacheControl {
@@ -70,11 +79,29 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chaarr.
+        /// </summary>
+        internal static string CaptionChaarr {
+            get {
+                return ResourceManager.GetString("CaptionChaarr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to chaarrHatred.
         /// </summary>
         internal static string CaptionChaarrHatred {
             get {
                 return ResourceManager.GetString("CaptionChaarrHatred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Communications.
+        /// </summary>
+        internal static string CaptionCommunications {
+            get {
+                return ResourceManager.GetString("CaptionCommunications", resourceCulture);
             }
         }
         
@@ -97,11 +124,56 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Decoy.
+        /// </summary>
+        internal static string CaptionDecoy {
+            get {
+                return ResourceManager.GetString("CaptionDecoy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Energy.
+        /// </summary>
+        internal static string CaptionEnergy {
+            get {
+                return ResourceManager.GetString("CaptionEnergy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to equipments.
         /// </summary>
         internal static string CaptionEquipments {
             get {
                 return ResourceManager.GetString("CaptionEquipments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esthajnalcsillag.
+        /// </summary>
+        internal static string CaptionEsthajnalcsillag {
+            get {
+                return ResourceManager.GetString("CaptionEsthajnalcsillag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EvacScience.
+        /// </summary>
+        internal static string CaptionEvacScience {
+            get {
+                return ResourceManager.GetString("CaptionEvacScience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EvacSurvivors.
+        /// </summary>
+        internal static string CaptionEvacSurvivors {
+            get {
+                return ResourceManager.GetString("CaptionEvacSurvivors", resourceCulture);
             }
         }
         
@@ -133,11 +205,38 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FinalWar.
+        /// </summary>
+        internal static string CaptionFinalWar {
+            get {
+                return ResourceManager.GetString("CaptionFinalWar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0.
         /// </summary>
         internal static string CaptionGET {
             get {
                 return ResourceManager.GetString("CaptionGET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Harvest.
+        /// </summary>
+        internal static string CaptionHarvest {
+            get {
+                return ResourceManager.GetString("CaptionHarvest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string CaptionHelp {
+            get {
+                return ResourceManager.GetString("CaptionHelp", resourceCulture);
             }
         }
         
@@ -196,6 +295,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MoveTo.
+        /// </summary>
+        internal static string CaptionMove {
+            get {
+                return ResourceManager.GetString("CaptionMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no-cache.
         /// </summary>
         internal static string CaptionNoCache {
@@ -205,11 +313,38 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string CaptionOrder {
+            get {
+                return ResourceManager.GetString("CaptionOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to parameters.
         /// </summary>
         internal static string CaptionParameters {
             get {
                 return ResourceManager.GetString("CaptionParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partialshuttle.
+        /// </summary>
+        internal static string CaptionPartialshuttle {
+            get {
+                return ResourceManager.GetString("CaptionPartialshuttle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Południca.
+        /// </summary>
+        internal static string CaptionPołudnica {
+            get {
+                return ResourceManager.GetString("CaptionPołudnica", resourceCulture);
             }
         }
         
@@ -241,6 +376,42 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Produce.
+        /// </summary>
+        internal static string CaptionProduce {
+            get {
+                return ResourceManager.GetString("CaptionProduce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repair.
+        /// </summary>
+        internal static string CaptionRepair {
+            get {
+                return ResourceManager.GetString("CaptionRepair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart.
+        /// </summary>
+        internal static string CaptionRestart {
+            get {
+                return ResourceManager.GetString("CaptionRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retreat.
+        /// </summary>
+        internal static string CaptionRetreat {
+            get {
+                return ResourceManager.GetString("CaptionRetreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to savedScience.
         /// </summary>
         internal static string CaptionSavedScience {
@@ -255,6 +426,15 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionSavedSurvivors {
             get {
                 return ResourceManager.GetString("CaptionSavedSurvivors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scan.
+        /// </summary>
+        internal static string CaptionScan {
+            get {
+                return ResourceManager.GetString("CaptionScan", resourceCulture);
             }
         }
         
@@ -322,6 +502,33 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shuttle.
+        /// </summary>
+        internal static string CaptionShuttle {
+            get {
+                return ResourceManager.GetString("CaptionShuttle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shuttlewrench.
+        /// </summary>
+        internal static string CaptionShuttlewrench {
+            get {
+                return ResourceManager.GetString("CaptionShuttlewrench", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supplies.
+        /// </summary>
+        internal static string CaptionSupplies {
+            get {
+                return ResourceManager.GetString("CaptionSupplies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to survivorDeaths.
         /// </summary>
         internal static string CaptionSurvivorDeaths {
@@ -349,11 +556,29 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tools.
+        /// </summary>
+        internal static string CaptionTools {
+            get {
+                return ResourceManager.GetString("CaptionTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to turn.
         /// </summary>
         internal static string CaptionTurn {
             get {
                 return ResourceManager.GetString("CaptionTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weapons.
+        /// </summary>
+        internal static string CaptionWeapons {
+            get {
+                return ResourceManager.GetString("CaptionWeapons", resourceCulture);
             }
         }
     }

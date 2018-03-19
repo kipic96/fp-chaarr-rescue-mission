@@ -15,6 +15,10 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0,0,20,0"/>
+    </Style>
     <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Margin" Value="25,0,0,0"/>
         <Setter Property="FontSize" Value="14"/>
@@ -24,6 +28,11 @@
         <Setter Property="Margin" Value="0,0,0,0"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="IsReadOnly" Value="True"/>
+    </Style>
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="14"/>
     </Style>
     <Style x:Key="SliderStyle" TargetType="Slider">
         <Setter Property="Width" Value="150"/>

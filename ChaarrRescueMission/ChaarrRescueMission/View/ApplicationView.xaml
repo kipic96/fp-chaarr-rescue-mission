@@ -7,8 +7,8 @@
         xmlns:properties="clr-namespace:ChaarrRescueMission.Properties"
         mc:Ignorable="d"
         Title="Chaarr Rescue Mission"
-        Width="900"
-        MinWidth="900"
+        Width="1000"
+        MinWidth="1000"
         Height="700"
         MinHeight="700"
 >
@@ -103,7 +103,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" Content="Events" Style="{StaticResource LabelStyle}"/>
-                <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding GameState.Events}">
+                <ListBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding GameState.Events}" Style="{StaticResource ListBoxStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -113,7 +113,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Label Grid.Column="0" Grid.Row="1" Content="LastTurnEvents" Style="{StaticResource LabelStyle}"/>
-                <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding GameState.LastTurnEvents}">
+                <ListBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding GameState.LastTurnEvents}" Style="{StaticResource ListBoxStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -123,7 +123,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Label Grid.Column="0" Grid.Row="2" Content="Equipments" Style="{StaticResource LabelStyle}"/>
-                <ListBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding GameState.Equipments}">
+                <ListBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding GameState.Equipments}" Style="{StaticResource ListBoxStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -133,7 +133,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <Label Grid.Column="0" Grid.Row="3" Content="LogBook" Style="{StaticResource LabelStyle}"/>
-                <ListBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding GameState.LogBook}">
+                <ListBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding GameState.LogBook}" Style="{StaticResource ListBoxStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -143,8 +143,63 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
-            <Button Grid.Row="1" Command="{Binding Command}" Style="{StaticResource ButtonStyle}" Content="Click me"/>
-            <TextBox Grid.Row="5" Text="{Binding Json}" Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" ScrollViewer.CanContentScroll="True"/>
+            <Grid Grid.Row="1" Name="RightBottomGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="Action" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding PosibleActions}"
+                          SelectedItem="{Binding CurrentAction}"
+                          IsSynchronizedWithCurrentItem="True"
+                          Style="{StaticResource ComboBoxStyle}"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Place" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding PosiblePlaces}"
+                          SelectedItem="{Binding CurrentPlace}"
+                          IsSynchronizedWithCurrentItem="True"
+                          Style="{StaticResource ComboBoxStyle}"
+                          IsEnabled="{Binding PlacesEnabled}"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="To repair" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding PosibleRepairing}"
+                          SelectedItem="{Binding CurrentRepairing}"
+                          IsSynchronizedWithCurrentItem="True"
+                          Style="{StaticResource ComboBoxStyle}"
+                          IsEnabled="{Binding RepairingEnabled}"/>
+                <Label Grid.Column="0" Grid.Row="3" Content="To product" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding PosibleProductions}"
+                          SelectedItem="{Binding CurrentProduction}"
+                          IsSynchronizedWithCurrentItem="True"
+                          Style="{StaticResource ComboBoxStyle}"
+                          IsEnabled="{Binding ProductionsEnabled}"/>
+                <Label Grid.Column="0" Grid.Row="4" Content="Order type" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding PosibleOrders}"
+                          SelectedItem="{Binding CurrentOrderType}"
+                          IsSynchronizedWithCurrentItem="True"
+                          Style="{StaticResource ComboBoxStyle}"
+                          IsEnabled="{Binding OrdersEnabled}"/>
+                <Label Grid.Column="0" Grid.Row="5" Content="Supplies amount" Style="{StaticResource LabelStyle}"/>
+                <Slider Grid.Column="1" Grid.Row="5" Width="200" Orientation="Horizontal" 
+                        Value="500" Minimum="2" Maximum="999" 
+                        SmallChange="10" LargeChange="100"
+                        TickPlacement="BottomRight" TickFrequency="100"
+                        IsEnabled="{Binding SuppliesEnabled}"/>
+                <Button Grid.Row="5" Command="{Binding Command}" Style="{StaticResource ButtonStyle}" Content="Click me"/>
+                <TextBox Grid.Row="6" Text="{Binding Json}" Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" ScrollViewer.CanContentScroll="True"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

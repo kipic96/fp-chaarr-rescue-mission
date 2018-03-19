@@ -1,7 +1,9 @@
 ﻿using ChaarrRescueMission.Model.Entity;
 using ChaarrRescueMission.Properties;
+using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
+using System.Windows;
 
 namespace ChaarrRescueMission.Model
 {
@@ -9,20 +11,31 @@ namespace ChaarrRescueMission.Model
     {
         public string Send(Cargo cargo)
         {
-            var client = new RestClient(Resources.CaptionGET);
-            var request = CreateRequest(cargo.ToJson());
-            IRestResponse response = client.Execute(request);
-            if (response.StatusCode == HttpStatusCode.OK)
+            var executeClient = new RestClient(Resources.CaptionSimulationExecute);
+            var executeRequest = CreateJsonRequest(
+                JsonConvert.SerializeObject(cargo, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore
+                }));
+            IRestResponse executeResponse = executeClient.Execute(executeRequest);
+            if (executeResponse.StatusCode != HttpStatusCode.OK)
+                return executeResponse.ErrorMessage;
+
+            var describeClient = new RestClient(Resources.CaptionSimulationDescribe);
+            var describeRequest = new RestRequest(Method.GET);
+            IRestResponse describeResponse = describeClient.Execute(describeRequest);
+            if (describeResponse.StatusCode == HttpStatusCode.OK)
             {
-                return response.Content;
+                return describeResponse.Content;
             }
             else
-                return response.ErrorMessage;
+                return describeResponse.ErrorMessage;
         }
 
-        private RestRequest CreateRequest(string jsonCargo)
+        private RestRequest CreateJsonRequest(string jsonCargo)
         {
-            var request = new RestRequest(Method.GET);
+            var request = new RestRequest(Method.POST);
             request.AddHeader(Resources.CaptionCacheControl, Resources.CaptionNoCache);
             request.AddHeader(Resources.CaptionContentType, Resources.CaptionJsonApp);
 

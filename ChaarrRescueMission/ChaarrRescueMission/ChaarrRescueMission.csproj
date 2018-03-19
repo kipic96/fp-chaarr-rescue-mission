@@ -73,6 +73,8 @@
     <Compile Include="Model\Entity\GameState.cs" />
     <Compile Include="Model\Entity\Parameters.cs" />
     <Compile Include="Model\Entity\Scores.cs" />
+    <Compile Include="Model\Factory\CargoFactory.cs" />
+    <Compile Include="Output\FileManager.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\NoParameterCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
@@ -80,16 +82,8 @@
     <Compile Include="View\ApplicationView.xaml.cs">
       <DependentUpon>ApplicationView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ApplicationView.xaml">

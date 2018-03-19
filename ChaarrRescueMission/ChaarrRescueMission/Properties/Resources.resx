@@ -141,7 +141,7 @@
   <data name="CaptionExpeditionMatter" xml:space="preserve">
     <value>expeditionMatter</value>
   </data>
-  <data name="CaptionGET" xml:space="preserve">
+  <data name="CaptionSimulationDescribe" xml:space="preserve">
     <value>https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0</value>
   </data>
   <data name="CaptionJsonApp" xml:space="preserve">
@@ -160,7 +160,7 @@
     <value>logBook</value>
   </data>
   <data name="CaptionLogin" xml:space="preserve">
-    <value>marcin.chilicki96@gmail.com</value>
+    <value>marcin.chilicki96@gmail.com.google</value>
   </data>
   <data name="CaptionNoCache" xml:space="preserve">
     <value>no-cache</value>
@@ -174,7 +174,7 @@
   <data name="CaptionPoludnicaMatter" xml:space="preserve">
     <value>poludnicaMatter</value>
   </data>
-  <data name="CaptionPOST" xml:space="preserve">
+  <data name="CaptionSimulationExecute" xml:space="preserve">
     <value>https://simulation.future-processing.pl/execute</value>
   </data>
   <data name="CaptionSavedScience" xml:space="preserve">

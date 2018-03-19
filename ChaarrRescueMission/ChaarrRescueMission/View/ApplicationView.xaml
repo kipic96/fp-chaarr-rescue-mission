@@ -10,8 +10,7 @@
         Width="1000"
         MinWidth="1000"
         Height="700"
-        MinHeight="700"
->
+        MinHeight="700">
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.9*" />
@@ -42,7 +41,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -85,11 +84,12 @@
             <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding GameState.Parameters.ExpeditionEnergy}" Style="{StaticResource TextBoxStyle}"/>
             <Label Grid.Column="0" Grid.Row="18" Content="IsTerminated" Style="{StaticResource LabelStyle}"/>
             <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding GameState.IsTerminated}" Style="{StaticResource TextBoxStyle}"/>
+            <Button Grid.Column="0" Grid.Row="19" Command="{Binding SaveJson}" Style="{StaticResource ButtonStyle}" Content="Save Json"/>
         </Grid>
         <Grid Name="RightGrid" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.6*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Name="RightTopGrid">
                 <Grid.RowDefinitions>
@@ -152,54 +152,49 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.4*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Content="Action" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding PosibleActions}"
-                          SelectedItem="{Binding CurrentAction}"
+                <Label Grid.Column="0" Grid.Row="1" Content="Action" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding PosibleActions}"
+                          SelectedItem="{Binding CurrentAction, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Place" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Column="1" Grid.Row="1" ItemsSource="{Binding PosiblePlaces}"
-                          SelectedItem="{Binding CurrentPlace}"
+                <Label Grid.Column="0" Grid.Row="2" Content="Place" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding PosiblePlaces}"
+                          SelectedItem="{Binding CurrentPlace, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding PlacesEnabled}"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="To repair" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding PosibleRepairing}"
-                          SelectedItem="{Binding CurrentRepairing}"
+                <Label Grid.Column="0" Grid.Row="3" Content="To repair" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding PosibleRepairing}"
+                          SelectedItem="{Binding CurrentRepairing, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding RepairingEnabled}"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="To product" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Column="1" Grid.Row="3" ItemsSource="{Binding PosibleProductions}"
-                          SelectedItem="{Binding CurrentProduction}"
+                <Label Grid.Column="0" Grid.Row="4" Content="To product" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding PosibleProductions}"
+                          SelectedItem="{Binding CurrentProduction, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding ProductionsEnabled}"/>
-                <Label Grid.Column="0" Grid.Row="4" Content="Order type" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding PosibleOrders}"
-                          SelectedItem="{Binding CurrentOrderType}"
+                <Label Grid.Column="0" Grid.Row="5" Content="Order type" Style="{StaticResource LabelStyle}"/>
+                <ComboBox Grid.Column="1" Grid.Row="5" ItemsSource="{Binding PosibleOrders}"
+                          SelectedItem="{Binding CurrentOrderType, Mode=TwoWay}"
                           IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding OrdersEnabled}"/>
-                <Label Grid.Column="0" Grid.Row="5" Content="Supplies amount" Style="{StaticResource LabelStyle}"/>
-                <Slider Grid.Column="1" Grid.Row="5" Width="200" Orientation="Horizontal" 
-                        Value="500" Minimum="2" Maximum="999" 
+                <Label Grid.Column="0" Grid.Row="6" Content="Supplies amount" Style="{StaticResource LabelStyle}"/>
+                <Slider Grid.Column="1" Grid.Row="6" Width="200" Orientation="Horizontal" 
+                        Value="{Binding SuppliesValue}" Minimum="2" Maximum="999" 
                         SmallChange="10" LargeChange="100"
                         TickPlacement="BottomRight" TickFrequency="100"
                         IsEnabled="{Binding SuppliesEnabled}"/>
-                <Button Grid.Row="5" Command="{Binding Command}" Style="{StaticResource ButtonStyle}" Content="Click me"/>
-                <TextBox Grid.Row="6" Text="{Binding Json}" Width="300" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" ScrollViewer.CanContentScroll="True"/>
-            </Grid>
+                <Button Grid.Column="1" Grid.Row="7" Command="{Binding ExecuteSend}" Style="{StaticResource ButtonStyle}" Content="Send"/>
+           </Grid>
         </Grid>
     </Grid>
 </Window>

@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using ChaarrRescueMission.Model.Entity;
 using System.Collections.Generic;
 using ChaarrRescueMission.Properties;
+using ChaarrRescueMission.Model.Factory;
+using ChaarrRescueMission.Output;
 
 namespace ChaarrRescueMission.ViewModel
 {
@@ -13,8 +15,25 @@ namespace ChaarrRescueMission.ViewModel
     {
         private CommunicationManager _communicationManager = new CommunicationManager();
 
+        private GameState _gameState;
+        public GameState GameState
+        {
+            get
+            {
+                if (_gameState == null)
+                    _gameState = new GameState();
+                return _gameState;
+            }
+            set
+            {
+                _gameState = value;
+                RaisePropertyChanged(nameof(GameState));
+            }
+        }
+
         public IList<string> PosibleActions { get; set; } = new List<string>()
         {
+            string.Empty,
             Resources.CaptionScan,
             Resources.CaptionMove,
             Resources.CaptionProduce,
@@ -43,6 +62,7 @@ namespace ChaarrRescueMission.ViewModel
         }
         public IList<string> PosibleRepairing { get; set; } = new List<string>()
         {
+            string.Empty,
             Resources.CaptionChaarr,
             Resources.CaptionEsthajnalcsillag,
             Resources.CaptionShuttle,
@@ -66,6 +86,7 @@ namespace ChaarrRescueMission.ViewModel
 
         public IList<string> PosiblePlaces { get; set; } = new List<string>()
         {
+            string.Empty,
             Resources.CaptionChaarr,
             Resources.CaptionEsthajnalcsillag,
             Resources.CaptionShuttle,
@@ -73,7 +94,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionPołudnica,
         };
 
-        public string CurrentPlaces { get; set; }
+        public string CurrentPlace { get; set; }
 
         public bool PlacesEnabled
         {
@@ -90,6 +111,7 @@ namespace ChaarrRescueMission.ViewModel
 
         public IList<string> PosibleProductions { get; set; } = new List<string>()
         {
+            string.Empty,
             Resources.CaptionDecoy,
             Resources.CaptionWeapons,
             Resources.CaptionSupplies,
@@ -112,6 +134,8 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
+        public int SuppliesValue { get; set; } = 500;
+
         public bool SuppliesEnabled
         {
             get
@@ -122,8 +146,7 @@ namespace ChaarrRescueMission.ViewModel
                 return false;
             }
         }
-
-        
+               
 
         public bool ProductionsEnabled
         {
@@ -154,26 +177,7 @@ namespace ChaarrRescueMission.ViewModel
                     return true;
                 return false;
             }
-        }
-
-        private GameState _gameState;
-        public GameState GameState
-        {
-            get
-            {
-                if (_gameState == null)
-                    _gameState = new GameState();
-                return _gameState;
-            }
-            set
-            {
-                _gameState = value;
-                RaisePropertyChanged(nameof(GameState));
-            }
-        }
-
-
- 
+        } 
 
         private string _json = string.Empty;
         public string Json
@@ -191,29 +195,60 @@ namespace ChaarrRescueMission.ViewModel
 
         #region Commands
 
-        private ICommand _command;
-        public ICommand Command
+        private ICommand _executeSendnd;
+        public ICommand ExecuteSend
         {
             get
             {
-                if (_command == null)
+                if (_executeSendnd == null)
                 {
-                    _command = new NoParameterCommand(
+                    _executeSendnd = new NoParameterCommand(
                         () =>
                         {
-                            Json = _communicationManager.Send(new Cargo()
-                            {
-                                Command = "RestartSimulation",
-                            });
+                            Json = _communicationManager.Send(
+                                CargoFactory.Create(CurrentAction, CurrentPlace, 
+                                CurrentRepairing, CurrentProduction, 
+                                CurrentOrderType, SuppliesValue.ToString()));
                             JToken gameStatusToken = JObject.Parse(Json);
                             GameState = JsonConvert.DeserializeObject<GameState>(Json);
-                        });
+                        },
+                        () =>
+                        {
+                            if (GameState.IsTerminated != null &&
+                                bool.Parse(GameState.IsTerminated) == true &&
+                                CurrentAction != null && 
+                                CurrentAction != Resources.CaptionRestart)
+                                return false;
+                            if ((CurrentAction == string.Empty) ||
+                                 (OrdersEnabled && string.IsNullOrEmpty(CurrentOrderType)) ||
+                                 (PlacesEnabled && string.IsNullOrEmpty(CurrentPlace)) ||
+                                 (ProductionsEnabled && string.IsNullOrEmpty(CurrentProduction)) ||
+                                 (RepairingEnabled && string.IsNullOrEmpty(CurrentRepairing)))
+                                 return false;
+                            return true;                                
+                        }
+                        );
                 }
-                return _command;
+                return _executeSendnd;
             }
         }
 
-
+        private ICommand _saveJson;
+        public ICommand SaveJson
+        {
+            get
+            {
+                if (_saveJson == null)
+                {
+                    _saveJson = new NoParameterCommand(
+                        () =>
+                        {
+                            FileManager.SaveToFile(Json);
+                        });
+                }
+                return _saveJson;
+            }
+        }
         #endregion Commands
     }
 }

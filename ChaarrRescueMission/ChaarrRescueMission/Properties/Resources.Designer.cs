@@ -19,7 +19,7 @@ namespace ChaarrRescueMission.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -214,15 +214,6 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0.
-        /// </summary>
-        internal static string CaptionGET {
-            get {
-                return ResourceManager.GetString("CaptionGET", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Harvest.
         /// </summary>
         internal static string CaptionHarvest {
@@ -286,7 +277,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to marcin.chilicki96@gmail.com.
+        ///   Looks up a localized string similar to marcin.chilicki96@gmail.com.google.
         /// </summary>
         internal static string CaptionLogin {
             get {
@@ -363,15 +354,6 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionPoludnicaMatter {
             get {
                 return ResourceManager.GetString("CaptionPoludnicaMatter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://simulation.future-processing.pl/execute.
-        /// </summary>
-        internal static string CaptionPOST {
-            get {
-                return ResourceManager.GetString("CaptionPOST", resourceCulture);
             }
         }
         
@@ -516,6 +498,24 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionShuttlewrench {
             get {
                 return ResourceManager.GetString("CaptionShuttlewrench", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0.
+        /// </summary>
+        internal static string CaptionSimulationDescribe {
+            get {
+                return ResourceManager.GetString("CaptionSimulationDescribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://simulation.future-processing.pl/execute.
+        /// </summary>
+        internal static string CaptionSimulationExecute {
+            get {
+                return ResourceManager.GetString("CaptionSimulationExecute", resourceCulture);
             }
         }
         

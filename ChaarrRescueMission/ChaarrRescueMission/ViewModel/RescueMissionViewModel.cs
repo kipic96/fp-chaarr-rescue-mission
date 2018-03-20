@@ -8,40 +8,26 @@ using System.Collections.Generic;
 using ChaarrRescueMission.Properties;
 using ChaarrRescueMission.Model.Factory;
 using ChaarrRescueMission.Output;
+using ChaarrRescueMission.Enum;
 
 namespace ChaarrRescueMission.ViewModel
 {
     class RescueMissionViewModel : BaseViewModel
     {
-        private CommunicationManager _communicationManager = new CommunicationManager();
+        #region Model
 
-        private GameState _gameState;
-        public GameState GameState
-        {
-            get
-            {
-                if (_gameState == null)
-                    _gameState = new GameState();
-                return _gameState;
-            }
-            set
-            {
-                _gameState = value;
-                RaisePropertyChanged(nameof(GameState));
-            }
-        }
+        private CommunicationManager _communicationManager 
+            = new CommunicationManager(GameType.Simulation);            
 
-        public IList<string> PosibleActions { get; set; } = new List<string>()
-        {
-            string.Empty,
-            Resources.CaptionScan,
-            Resources.CaptionMove,
-            Resources.CaptionProduce,
-            Resources.CaptionHarvest,
-            Resources.CaptionRepair,
-            Resources.CaptionOrder,
-            Resources.CaptionRestart,
-        };
+        #endregion Model
+
+        #region CurrentGameStates
+
+        public string Json { get; set; }
+        public int SuppliesValue { get; set; } = int.Parse(Resources.CaptionSuppliesDefault);
+        public string CurrentRepairing { get; set; }
+        public string CurrentPlace { get; set; }
+        public string CurrentOrderType { get; set; }
 
         private string _currentAction;
         public string CurrentAction
@@ -60,65 +46,6 @@ namespace ChaarrRescueMission.ViewModel
                 RaisePropertyChanged(nameof(SuppliesEnabled));
             }
         }
-        public IList<string> PosibleRepairing { get; set; } = new List<string>()
-        {
-            string.Empty,
-            Resources.CaptionChaarr,
-            Resources.CaptionEsthajnalcsillag,
-            Resources.CaptionShuttle,
-            Resources.CaptionAsteroids,
-            Resources.CaptionPołudnica,
-            Resources.CaptionPartialshuttle,
-            Resources.CaptionCommunications,
-        };
-
-        public string CurrentRepairing { get; set; }
-
-        public bool RepairingEnabled
-        {
-            get
-            {
-                if (CurrentAction == Resources.CaptionRepair)
-                    return true;
-                return false;
-            }
-        }
-
-        public IList<string> PosiblePlaces { get; set; } = new List<string>()
-        {
-            string.Empty,
-            Resources.CaptionChaarr,
-            Resources.CaptionEsthajnalcsillag,
-            Resources.CaptionShuttle,
-            Resources.CaptionAsteroids,
-            Resources.CaptionPołudnica,
-        };
-
-        public string CurrentPlace { get; set; }
-
-        public bool PlacesEnabled
-        {
-            get
-            {
-                if (CurrentAction == Resources.CaptionHarvest ||
-                    CurrentAction == Resources.CaptionMove || 
-                    CurrentAction == Resources.CaptionScan ||
-                    CurrentAction == Resources.CaptionOrder)
-                    return true;
-                return false;
-            }
-        }
-
-        public IList<string> PosibleProductions { get; set; } = new List<string>()
-        {
-            string.Empty,
-            Resources.CaptionDecoy,
-            Resources.CaptionWeapons,
-            Resources.CaptionSupplies,
-            Resources.CaptionTools,
-            Resources.CaptionEnergy,
-            Resources.CaptionShuttlewrench,
-        };
 
         private string _currentProduction;
         public string CurrentProduction
@@ -134,7 +61,133 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        public int SuppliesValue { get; set; } = int.Parse(Resources.CaptionSuppliesDefault);
+        public string CurrentGameType
+        {
+            get
+            {
+                if (GameType == GameType.Chaarr)
+                    return Resources.CaptionChaarr;
+                if (GameType == GameType.Simulation)
+                    return Resources.CaptionSimulation;
+                return string.Empty;
+            }            
+        }
+
+        private GameType _gameType = GameType.Simulation;
+        public GameType GameType
+        {
+            get
+            {
+                return _gameType;
+            }
+            set
+            {
+                _gameType = value;
+                RaisePropertyChanged(nameof(CurrentGameType));
+            }
+        }
+
+        private GameState _gameState;
+        public GameState GameState
+        {
+            get
+            {
+                if (_gameState == null)
+                    _gameState = new GameState();
+                return _gameState;
+            }
+            set
+            {
+                _gameState = value;
+                RaisePropertyChanged(nameof(GameState));
+            }
+        }
+
+        #endregion CurrentGameStates
+
+        #region ViewDataSources
+
+        public IList<string> PosibleActions { get; set; } = new List<string>()
+        {
+            string.Empty,
+            Resources.CaptionScan,
+            Resources.CaptionMove,
+            Resources.CaptionProduce,
+            Resources.CaptionHarvest,
+            Resources.CaptionRepair,
+            Resources.CaptionOrder,
+            Resources.CaptionRestart,
+        };
+        
+        public IList<string> PosibleRepairing { get; set; } = new List<string>()
+        {
+            string.Empty,
+            Resources.CaptionChaarr,
+            Resources.CaptionEsthajnalcsillag,
+            Resources.CaptionShuttle,
+            Resources.CaptionAsteroids,
+            Resources.CaptionPołudnica,
+            Resources.CaptionPartialshuttle,
+            Resources.CaptionCommunications,
+        };    
+
+        public IList<string> PosiblePlaces { get; set; } = new List<string>()
+        {
+            string.Empty,
+            Resources.CaptionChaarr,
+            Resources.CaptionEsthajnalcsillag,
+            Resources.CaptionShuttle,
+            Resources.CaptionAsteroids,
+            Resources.CaptionPołudnica,
+        };      
+
+        public IList<string> PosibleProductions { get; set; } = new List<string>()
+        {
+            string.Empty,
+            Resources.CaptionDecoy,
+            Resources.CaptionWeapons,
+            Resources.CaptionSupplies,
+            Resources.CaptionTools,
+            Resources.CaptionEnergy,
+            Resources.CaptionShuttlewrench,
+        };   
+        
+        public IList<string> PosibleOrders { get; set; } = new List<string>()
+        {
+            string.Empty,
+            Resources.CaptionHelp,
+            Resources.CaptionFinalWar,
+            Resources.CaptionEvacScience,
+            Resources.CaptionEvacSurvivors,
+            Resources.CaptionRetreat
+        };
+
+        #endregion ViewDataSources
+
+        #region ControlsEnablingFlags
+
+        public bool RepairingEnabled
+        {
+            get
+            {
+                if (CurrentAction == Resources.CaptionRepair)
+                    return true;
+                return false;
+            }
+        }
+
+        public bool PlacesEnabled
+        {
+            get
+            {
+                if (CurrentAction == Resources.CaptionHarvest ||
+                    CurrentAction == Resources.CaptionMove ||
+                    CurrentAction == Resources.CaptionScan ||
+                    CurrentAction == Resources.CaptionOrder)
+                    return true;
+                return false;
+            }
+        }
 
         public bool SuppliesEnabled
         {
@@ -146,7 +199,6 @@ namespace ChaarrRescueMission.ViewModel
                 return false;
             }
         }
-               
 
         public bool ProductionsEnabled
         {
@@ -158,18 +210,6 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        public IList<string> PosibleOrders { get; set; } = new List<string>()
-        {
-            string.Empty,
-            Resources.CaptionHelp,
-            Resources.CaptionFinalWar,
-            Resources.CaptionEvacScience,
-            Resources.CaptionEvacSurvivors,
-            Resources.CaptionRetreat
-        };
-
-        public string CurrentOrderType { get; set; }
-
         public bool OrdersEnabled
         {
             get
@@ -178,21 +218,9 @@ namespace ChaarrRescueMission.ViewModel
                     return true;
                 return false;
             }
-        } 
+        }
 
-        private string _json = string.Empty;
-        public string Json
-        {
-            get
-            {
-                return _json;
-            }
-            set
-            {
-                _json = value;
-                RaisePropertyChanged(nameof(Json));
-            }
-        }       
+        #endregion ControlsEnablingFlags
 
         #region Commands
 
@@ -270,6 +298,34 @@ namespace ChaarrRescueMission.ViewModel
                         });
                 }
                 return _clear;
+            }
+        }
+
+        private ICommand _switchChaarrSimulation;
+        public ICommand SwitchChaarrSimulation
+        {
+            get
+            {
+                if (_switchChaarrSimulation == null)
+                {
+                    _switchChaarrSimulation = new NoParameterCommand(
+                        () =>
+                        {
+                            if (GameType == GameType.Chaarr)
+                                GameType = GameType.Simulation;
+                            else
+                                GameType = GameType.Chaarr;
+                            _communicationManager = new CommunicationManager(GameType);
+                        },
+                        () => 
+                        {
+                            return (GameState.IsTerminated == null ||
+                                    (GameState.IsTerminated != null &&
+                                    bool.Parse(GameState.IsTerminated) == true));
+                        }
+                        );
+                }
+                return _switchChaarrSimulation;
             }
         }
 

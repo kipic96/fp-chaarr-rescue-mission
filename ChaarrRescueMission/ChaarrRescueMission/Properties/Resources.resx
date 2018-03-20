@@ -294,4 +294,13 @@
   <data name="CaptionSuppliesDefault" xml:space="preserve">
     <value>500</value>
   </data>
+  <data name="CaptionChaarrDescribe" xml:space="preserve">
+    <value>https://chaarr.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0</value>
+  </data>
+  <data name="CaptionChaarrExecute" xml:space="preserve">
+    <value>https://chaarr.future-processing.pl/execute</value>
+  </data>
+  <data name="CaptionSimulation" xml:space="preserve">
+    <value>Simulation</value>
+  </data>
 </root>

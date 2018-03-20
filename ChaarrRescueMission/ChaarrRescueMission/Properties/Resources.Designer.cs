@@ -88,6 +88,24 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://chaarr.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0.
+        /// </summary>
+        internal static string CaptionChaarrDescribe {
+            get {
+                return ResourceManager.GetString("CaptionChaarrDescribe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://chaarr.future-processing.pl/execute.
+        /// </summary>
+        internal static string CaptionChaarrExecute {
+            get {
+                return ResourceManager.GetString("CaptionChaarrExecute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to chaarrHatred.
         /// </summary>
         internal static string CaptionChaarrHatred {
@@ -498,6 +516,15 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionShuttlewrench {
             get {
                 return ResourceManager.GetString("CaptionShuttlewrench", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simulation.
+        /// </summary>
+        internal static string CaptionSimulation {
+            get {
+                return ResourceManager.GetString("CaptionSimulation", resourceCulture);
             }
         }
         

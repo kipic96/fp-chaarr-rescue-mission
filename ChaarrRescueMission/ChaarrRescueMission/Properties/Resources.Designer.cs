@@ -19,7 +19,7 @@ namespace ChaarrRescueMission.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -250,6 +250,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NotEnoughMinerals.
+        /// </summary>
+        internal static string CaptionEventNotEnoughMinerals {
+            get {
+                return ResourceManager.GetString("CaptionEventNotEnoughMinerals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PołudnicaEnergyChanged.
         /// </summary>
         internal static string CaptionEventPołudnicaEnergyChanged {
@@ -390,6 +399,15 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionLogin {
             get {
                 return ResourceManager.GetString("CaptionLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 180.
+        /// </summary>
+        internal static string CaptionMaxChaarrHatred {
+            get {
+                return ResourceManager.GetString("CaptionMaxChaarrHatred", resourceCulture);
             }
         }
         

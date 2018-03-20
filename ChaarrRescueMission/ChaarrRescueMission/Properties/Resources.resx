@@ -333,4 +333,10 @@
   <data name="CaptionEventUpkeepTime" xml:space="preserve">
     <value>UpkeepTime</value>
   </data>
+  <data name="CaptionEventNotEnoughMinerals" xml:space="preserve">
+    <value>NotEnoughMinerals</value>
+  </data>
+  <data name="CaptionMaxChaarrHatred" xml:space="preserve">
+    <value>180</value>
+  </data>
 </root>

@@ -261,11 +261,13 @@ namespace ChaarrRescueMission.ViewModel
                         },
                         () =>
                         {
+                            if (GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred)
+                                GameState.IsTerminated = true.ToString();
                             if (GameState.IsTerminated != null &&
                                 bool.Parse(GameState.IsTerminated) == true &&
                                 CurrentAction != null && 
                                 CurrentAction != Resources.CaptionRestart)
-                                return false;
+                                return false;                          
                             if ((CurrentAction == string.Empty) ||
                                  (OrdersEnabled && string.IsNullOrEmpty(CurrentOrderType)) ||
                                  (PlacesEnabled && string.IsNullOrEmpty(CurrentPlace)) ||

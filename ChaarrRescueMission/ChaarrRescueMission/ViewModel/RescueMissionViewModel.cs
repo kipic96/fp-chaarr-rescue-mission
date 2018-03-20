@@ -261,7 +261,8 @@ namespace ChaarrRescueMission.ViewModel
                         },
                         () =>
                         {
-                            if (GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred)
+                            if (GameState.Parameters != null &&
+                                GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred)
                                 GameState.IsTerminated = true.ToString();
                             if (GameState.IsTerminated != null &&
                                 bool.Parse(GameState.IsTerminated) == true &&

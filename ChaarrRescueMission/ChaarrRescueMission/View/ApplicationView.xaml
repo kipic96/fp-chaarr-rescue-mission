@@ -196,6 +196,7 @@
                         SmallChange="10" LargeChange="100"
                         TickPlacement="BottomRight" TickFrequency="100"
                         IsEnabled="{Binding SuppliesEnabled}"/>
+                <Label Grid.Column="1" Grid.Row="6" Content="{Binding SuppliesValue}" Style="{StaticResource LabelStyle}" Margin="285,0,0,-30"/>
                 <Button Grid.Column="1" Grid.Row="7" Command="{Binding ExecuteSend}" Style="{StaticResource ButtonStyle}" Margin="125,0,0,0" Content="Send"/>
                 <Button Grid.Column="1" Grid.Row="7" Click="ClearButton_Click"  Command="{Binding Clear}" Style="{StaticResource ButtonStyle}" Margin="-125,0,0,0" Content="Clear"/>
            </Grid>

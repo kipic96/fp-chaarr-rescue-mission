@@ -24,7 +24,7 @@ namespace ChaarrRescueMission.ViewModel
         #region CurrentGameStates
 
         public string Json { get; set; }
-        public int SuppliesValue { get; set; } = int.Parse(Resources.CaptionSuppliesDefault);
+        
         public string CurrentRepairing { get; set; }
         public string CurrentPlace { get; set; }
         public string CurrentOrderType { get; set; }
@@ -72,6 +72,21 @@ namespace ChaarrRescueMission.ViewModel
                 return string.Empty;
             }            
         }
+
+        public int _suppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
+        public int SuppliesValue
+        {
+            get
+            {
+                return _suppliesValue;
+            }
+            set
+            {
+                _suppliesValue = value;
+                RaisePropertyChanged(nameof(SuppliesValue));
+            }
+        }
+
 
         private GameType _gameType = GameType.Simulation;
         public GameType GameType

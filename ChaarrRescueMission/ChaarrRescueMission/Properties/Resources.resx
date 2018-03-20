@@ -306,4 +306,31 @@
   <data name="CaptionAppTitle" xml:space="preserve">
     <value />
   </data>
+  <data name="CaptionEventChaarrHatredChanged" xml:space="preserve">
+    <value>ChaarrHatredChanged</value>
+  </data>
+  <data name="CaptionEventCrewDeathsChanged" xml:space="preserve">
+    <value>CrewDeathsChanged</value>
+  </data>
+  <data name="CaptionEventExpeditionEnergyChanged" xml:space="preserve">
+    <value>ExpeditionEnergyChanged</value>
+  </data>
+  <data name="CaptionEventExpeditionMatterChanged" xml:space="preserve">
+    <value>ExpeditionMatterChanged</value>
+  </data>
+  <data name="CaptionEventKnowledgeChanged" xml:space="preserve">
+    <value>KnowledgeChanged</value>
+  </data>
+  <data name="CaptionEventPołudnicaEnergyChanged" xml:space="preserve">
+    <value>PołudnicaEnergyChanged</value>
+  </data>
+  <data name="CaptionEventPołudnicaMatterChanged" xml:space="preserve">
+    <value>PołudnicaMatterChanged</value>
+  </data>
+  <data name="CaptionEventSurvivorDeathsChanged" xml:space="preserve">
+    <value>SurvivorDeathsChanged</value>
+  </data>
+  <data name="CaptionEventUpkeepTime" xml:space="preserve">
+    <value>UpkeepTime</value>
+  </data>
 </root>

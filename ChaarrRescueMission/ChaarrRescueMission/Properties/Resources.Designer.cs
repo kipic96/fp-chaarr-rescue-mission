@@ -19,7 +19,7 @@ namespace ChaarrRescueMission.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -205,11 +205,92 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ChaarrHatredChanged.
+        /// </summary>
+        internal static string CaptionEventChaarrHatredChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventChaarrHatredChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CrewDeathsChanged.
+        /// </summary>
+        internal static string CaptionEventCrewDeathsChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventCrewDeathsChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExpeditionEnergyChanged.
+        /// </summary>
+        internal static string CaptionEventExpeditionEnergyChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventExpeditionEnergyChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExpeditionMatterChanged.
+        /// </summary>
+        internal static string CaptionEventExpeditionMatterChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventExpeditionMatterChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KnowledgeChanged.
+        /// </summary>
+        internal static string CaptionEventKnowledgeChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventKnowledgeChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PołudnicaEnergyChanged.
+        /// </summary>
+        internal static string CaptionEventPołudnicaEnergyChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventPołudnicaEnergyChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PołudnicaMatterChanged.
+        /// </summary>
+        internal static string CaptionEventPołudnicaMatterChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventPołudnicaMatterChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to events.
         /// </summary>
         internal static string CaptionEvents {
             get {
                 return ResourceManager.GetString("CaptionEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SurvivorDeathsChanged.
+        /// </summary>
+        internal static string CaptionEventSurvivorDeathsChanged {
+            get {
+                return ResourceManager.GetString("CaptionEventSurvivorDeathsChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpkeepTime.
+        /// </summary>
+        internal static string CaptionEventUpkeepTime {
+            get {
+                return ResourceManager.GetString("CaptionEventUpkeepTime", resourceCulture);
             }
         }
         

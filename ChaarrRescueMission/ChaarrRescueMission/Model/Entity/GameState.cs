@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ChaarrRescueMission.Model.Entity.EntityFiltering;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace ChaarrRescueMission.Model.Entity
@@ -7,8 +8,30 @@ namespace ChaarrRescueMission.Model.Entity
     {
         public string Turn { get; set; }
         public string Location { get; set; }
-        public List<string> Events { get; set; }
-        public IList<string> LastTurnEvents { get; set; }
+        private IList<string> _events;
+        public IList<string> Events
+        {
+            get
+            {
+                return _events;
+            }
+            set
+            {
+                _events = EventFiltering.Filter(value);
+            }
+        }
+        private IList<string> _lastEvents;
+        public IList<string> LastTurnEvents
+        {
+            get
+            {
+                return _lastEvents;
+            }
+            set
+            {
+                _lastEvents = EventFiltering.Filter(value);
+            }
+        }
         public IList<string> Equipments { get; set; }
         public IList<string> LogBook { get; set; }
         private Scores _scores;

@@ -253,8 +253,11 @@ namespace ChaarrRescueMission.ViewModel
                                 CargoFactory.Create(CurrentAction, CurrentPlace, 
                                 CurrentRepairing, CurrentProduction, 
                                 CurrentOrderType, SuppliesValue.ToString()));
-                            JToken gameStatusToken = JObject.Parse(Json);
-                            GameState = JsonConvert.DeserializeObject<GameState>(Json);
+                            if (Json != null)
+                            {
+                                JToken gameStatusToken = JObject.Parse(Json);
+                                GameState = JsonConvert.DeserializeObject<GameState>(Json);
+                            }                            
                         },
                         () =>
                         {

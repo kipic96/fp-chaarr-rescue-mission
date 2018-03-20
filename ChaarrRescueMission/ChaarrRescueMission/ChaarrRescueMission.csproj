@@ -71,6 +71,7 @@
     <Compile Include="Enum\GameType.cs" />
     <Compile Include="Model\Entity\Cargo.cs" />
     <Compile Include="Model\CommunicationManager.cs" />
+    <Compile Include="Model\Entity\EntityFiltering\EventFiltering.cs" />
     <Compile Include="Model\Entity\GameState.cs" />
     <Compile Include="Model\Entity\Parameters.cs" />
     <Compile Include="Model\Entity\Scores.cs" />

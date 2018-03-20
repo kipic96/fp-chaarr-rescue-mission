@@ -1,7 +1,7 @@
 ﻿using ChaarrRescueMission.Enum;
 using ChaarrRescueMission.Model.Entity;
+using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Properties;
-using Newtonsoft.Json;
 using RestSharp;
 using System.Net;
 
@@ -13,7 +13,7 @@ namespace ChaarrRescueMission.Model
         private string describeConnectionString;
 
         /// <summary>
-        /// Constructor which sets game type, Chaarr or Simulation.
+        /// Constructor which sets game type configuration, Chaarr or Simulation.
         /// </summary>
         public CommunicationManager(GameType gameType)
         {
@@ -36,12 +36,7 @@ namespace ChaarrRescueMission.Model
         public string Send(Cargo cargo)
         {
             var executeClient = new RestClient(executeConnectionString);
-            var executeRequest = CreateJsonRequest(
-                JsonConvert.SerializeObject(cargo, Formatting.Indented,
-                new JsonSerializerSettings
-                {
-                    NullValueHandling = NullValueHandling.Ignore
-                }));
+            var executeRequest = CreateJsonRequest(JsonConverter.Parse(cargo));
             IRestResponse executeResponse = executeClient.Execute(executeRequest);
             if (executeResponse.StatusCode != HttpStatusCode.OK)
                 return executeResponse.ErrorMessage;
@@ -58,7 +53,7 @@ namespace ChaarrRescueMission.Model
         }
 
         /// <summary>
-        /// Creates Json Request with POST Method for Executing Action.
+        /// Creates Request with POST Method for Executing Action and with Json parameter.
         /// </summary>
         private RestRequest CreateJsonRequest(string jsonCargo)
         {

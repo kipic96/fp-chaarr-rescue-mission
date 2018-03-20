@@ -337,6 +337,6 @@
     <value>NotEnoughMinerals</value>
   </data>
   <data name="CaptionMaxChaarrHatred" xml:space="preserve">
-    <value>180</value>
+    <value>180.0</value>
   </data>
 </root>

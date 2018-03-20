@@ -1,35 +1,47 @@
-﻿using ChaarrRescueMission.ViewModel.Base;
+﻿using ChaarrRescueMission.Enum;
 using ChaarrRescueMission.Model;
-using System.Windows.Input;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using ChaarrRescueMission.Model.Entity;
-using System.Collections.Generic;
-using ChaarrRescueMission.Properties;
 using ChaarrRescueMission.Model.Factory;
+using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Output;
-using ChaarrRescueMission.Enum;
+using ChaarrRescueMission.Properties;
+using ChaarrRescueMission.ViewModel.Base;
+using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace ChaarrRescueMission.ViewModel
 {
     class RescueMissionViewModel : BaseViewModel
     {
+        #region Constructor
+
+        public RescueMissionViewModel()
+        {
+            _communicationManager = new CommunicationManager(GameType.Simulation);
+            Json = _communicationManager.Send(new Cargo()
+            {
+                Command = Resources.CaptionRestart,
+            });
+            GameState = JsonConverter.Parse(Json);
+        }
+
+        #endregion Constructor
+
         #region Model
 
-        private CommunicationManager _communicationManager 
-            = new CommunicationManager(GameType.Simulation);            
+        private CommunicationManager _communicationManager;
 
         #endregion Model
 
         #region CurrentGameStates
 
         public string Json { get; set; }
-        
-        public string CurrentRepairing { get; set; }
-        public string CurrentPlace { get; set; }
-        public string CurrentOrderType { get; set; }
 
-        private string _currentAction;
+        public string CurrentRepairing { get; set; } = string.Empty;
+        public string CurrentPlace { get; set; } = string.Empty;
+        public string CurrentOrderType { get; set; } = string.Empty;
+
+        private string _currentAction = string.Empty;
         public string CurrentAction
         {
             get
@@ -47,7 +59,7 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        private string _currentProduction;
+        private string _currentProduction = string.Empty;
         public string CurrentProduction
         {
             get
@@ -59,19 +71,7 @@ namespace ChaarrRescueMission.ViewModel
                 _currentProduction = value;
                 RaisePropertyChanged(nameof(SuppliesEnabled));
             }
-        }
-
-        public string CurrentGameType
-        {
-            get
-            {
-                if (GameType == GameType.Chaarr)
-                    return Resources.CaptionChaarr;
-                if (GameType == GameType.Simulation)
-                    return Resources.CaptionSimulation;
-                return string.Empty;
-            }            
-        }
+        }        
 
         public int _suppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
         public int SuppliesValue
@@ -87,6 +87,17 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
+        public string CurrentGameType
+        {
+            get
+            {
+                if (GameType == GameType.Chaarr)
+                    return Resources.CaptionChaarr;
+                if (GameType == GameType.Simulation)
+                    return Resources.CaptionSimulation;
+                return string.Empty;
+            }
+        }
 
         private GameType _gameType = GameType.Simulation;
         public GameType GameType
@@ -247,37 +258,8 @@ namespace ChaarrRescueMission.ViewModel
                 if (_executeSendnd == null)
                 {
                     _executeSendnd = new NoParameterCommand(
-                        () =>
-                        {
-                            Json = _communicationManager.Send(
-                                CargoFactory.Create(CurrentAction, CurrentPlace, 
-                                CurrentRepairing, CurrentProduction, 
-                                CurrentOrderType, SuppliesValue.ToString()));
-                            if (Json != null)
-                            {
-                                JToken gameStatusToken = JObject.Parse(Json);
-                                GameState = JsonConvert.DeserializeObject<GameState>(Json);
-                            }                            
-                        },
-                        () =>
-                        {
-                            if (GameState.Parameters != null &&
-                                GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred)
-                                GameState.IsTerminated = true.ToString();
-                            if (GameState.IsTerminated != null &&
-                                bool.Parse(GameState.IsTerminated) == true &&
-                                CurrentAction != null && 
-                                CurrentAction != Resources.CaptionRestart)
-                                return false;                          
-                            if ((CurrentAction == string.Empty) ||
-                                 (OrdersEnabled && string.IsNullOrEmpty(CurrentOrderType)) ||
-                                 (PlacesEnabled && string.IsNullOrEmpty(CurrentPlace)) ||
-                                 (ProductionsEnabled && string.IsNullOrEmpty(CurrentProduction)) ||
-                                 (RepairingEnabled && string.IsNullOrEmpty(CurrentRepairing)))
-                                 return false;
-                            return true;                                
-                        }
-                        );
+                        () => ExecuteRequest(),
+                        () => CanExecuteRequest());
                 }
                 return _executeSendnd;
             }
@@ -291,10 +273,7 @@ namespace ChaarrRescueMission.ViewModel
                 if (_saveJson == null)
                 {
                     _saveJson = new NoParameterCommand(
-                        () =>
-                        {
-                            FileManager.SaveToFile(Json);
-                        });
+                        () => FileManager.SaveToFile(Json));
                 }
                 return _saveJson;
             }
@@ -310,11 +289,11 @@ namespace ChaarrRescueMission.ViewModel
                     _clear = new NoParameterCommand(
                         () =>
                         {
-                            CurrentAction = PosibleActions[0];
-                            CurrentOrderType = PosibleOrders[0];
-                            CurrentPlace = PosiblePlaces[0];
-                            CurrentProduction = PosibleProductions[0];
-                            CurrentRepairing = PosibleRepairing[0];
+                            CurrentAction = string.Empty;
+                            CurrentOrderType = string.Empty;
+                            CurrentPlace = string.Empty;
+                            CurrentProduction = string.Empty;
+                            CurrentRepairing = string.Empty;
                             SuppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
                         });
                 }
@@ -338,18 +317,51 @@ namespace ChaarrRescueMission.ViewModel
                                 GameType = GameType.Chaarr;
                             _communicationManager = new CommunicationManager(GameType);
                         },
-                        () => 
-                        {
-                            return (GameState.IsTerminated == null ||
-                                    (GameState.IsTerminated != null &&
-                                    bool.Parse(GameState.IsTerminated) == true));
-                        }
-                        );
+                        () => IsGameTerminated());
                 }
                 return _switchChaarrSimulation;
             }
         }
 
         #endregion Commands
+
+        #region Private Methods
+
+        private void ExecuteRequest()
+        {
+            Json = _communicationManager.Send(
+                CargoFactory.Create(CurrentAction, CurrentPlace,
+                CurrentRepairing, CurrentProduction,
+                CurrentOrderType, SuppliesValue.ToString()));
+            GameState = JsonConverter.Parse(Json);
+        }
+
+        private bool CanExecuteRequest()
+        {
+            return !((IsGameTerminated() && !IsGameWantedToRestart()) ||
+                IsActionInputIncomplete());
+        }
+
+        private bool IsGameTerminated()
+        {
+            return (bool.Parse(GameState.IsTerminated) == true ||
+                GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred);
+        }
+
+        private bool IsGameWantedToRestart()
+        {
+            return (CurrentAction == Resources.CaptionRestart);
+        }
+
+        private bool IsActionInputIncomplete()
+        {
+            return ((CurrentAction == string.Empty) ||
+                   (OrdersEnabled && CurrentOrderType == string.Empty) ||
+                   (PlacesEnabled && CurrentPlace == string.Empty) ||
+                   (ProductionsEnabled && CurrentProduction == string.Empty) ||
+                   (RepairingEnabled && CurrentRepairing == string.Empty));
+        }
+
+        #endregion Private Methods
     }
 }

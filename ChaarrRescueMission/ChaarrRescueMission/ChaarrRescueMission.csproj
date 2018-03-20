@@ -71,15 +71,15 @@
     <Compile Include="Enum\GameType.cs" />
     <Compile Include="Model\Entity\Cargo.cs" />
     <Compile Include="Model\CommunicationManager.cs" />
-    <Compile Include="Model\Entity\EntityFiltering\EventFiltering.cs" />
+    <Compile Include="Model\Entity\Filtering\EventFiltering.cs" />
     <Compile Include="Model\Entity\GameState.cs" />
+    <Compile Include="Model\Json\JsonConverter.cs" />
     <Compile Include="Model\Entity\Parameters.cs" />
     <Compile Include="Model\Entity\Scores.cs" />
     <Compile Include="Model\Factory\CargoFactory.cs" />
     <Compile Include="Output\FileManager.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\NoParameterCommand.cs" />
-    <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\RescueMissionViewModel.cs" />
     <Compile Include="View\ApplicationView.xaml.cs">
       <DependentUpon>ApplicationView.xaml</DependentUpon>

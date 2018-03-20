@@ -403,7 +403,7 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 180.
+        ///   Looks up a localized string similar to 180.0.
         /// </summary>
         internal static string CaptionMaxChaarrHatred {
             get {

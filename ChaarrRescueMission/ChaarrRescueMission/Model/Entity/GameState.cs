@@ -1,4 +1,4 @@
-﻿using ChaarrRescueMission.Model.Entity.EntityFiltering;
+﻿using ChaarrRescueMission.Model.Entity.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 

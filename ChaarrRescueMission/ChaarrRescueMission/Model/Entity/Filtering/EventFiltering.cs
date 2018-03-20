@@ -1,14 +1,14 @@
 ﻿using ChaarrRescueMission.Properties;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ChaarrRescueMission.Model.Entity.EntityFiltering
+namespace ChaarrRescueMission.Model.Entity.Filtering
 {
     class EventFiltering
     {
+        /// <summary>
+        /// Filters events lists and deletes from them unnessecery events.
+        /// </summary>
         public static IList<string> Filter(IList<string> list)
         {
             return list.Where(Event =>

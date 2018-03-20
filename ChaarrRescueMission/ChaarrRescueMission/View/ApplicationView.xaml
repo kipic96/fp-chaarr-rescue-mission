@@ -163,42 +163,34 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Grid.Row="1" Content="Action" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Name="ActionsComboBox" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding PosibleActions}"
-                          SelectedItem="{Binding CurrentAction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          IsSynchronizedWithCurrentItem="True"
+                          SelectedItem="{Binding CurrentAction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                          
                           Style="{StaticResource ComboBoxStyle}"/>
                 <Label Grid.Column="0" Grid.Row="2" Content="Place" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Name="PlacesComboBox" Grid.Column="1" Grid.Row="2" ItemsSource="{Binding PosiblePlaces}"
                           SelectedItem="{Binding CurrentPlace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding PlacesEnabled}"/>
                 <Label Grid.Column="0" Grid.Row="3" Content="To repair" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Name="RepairingComboBox" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding PosibleRepairing}"
                           SelectedItem="{Binding CurrentRepairing, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding RepairingEnabled}"/>
                 <Label Grid.Column="0" Grid.Row="4" Content="To product" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Name="ProductionComboBox" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding PosibleProductions}"
                           SelectedItem="{Binding CurrentProduction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding ProductionsEnabled}"/>
                 <Label Grid.Column="0" Grid.Row="5" Content="Order type" Style="{StaticResource LabelStyle}"/>
                 <ComboBox Name="OrdersComboBox" Grid.Column="1" Grid.Row="5" ItemsSource="{Binding PosibleOrders}"
                           SelectedItem="{Binding CurrentOrderType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          IsSynchronizedWithCurrentItem="True"
                           Style="{StaticResource ComboBoxStyle}"
                           IsEnabled="{Binding OrdersEnabled}"/>
                 <Label Grid.Column="0" Grid.Row="6" Content="Supplies amount" Style="{StaticResource LabelStyle}"/>
-                <Slider Grid.Column="1" Grid.Row="6" Width="200" Orientation="Horizontal" 
-                        Value="{Binding SuppliesValue}" Minimum="2" Maximum="999" 
-                        SmallChange="10" LargeChange="100"
-                        TickPlacement="BottomRight" TickFrequency="100"
-                        IsEnabled="{Binding SuppliesEnabled}"/>
+                <Slider Grid.Column="1" Grid.Row="6" Value="{Binding SuppliesValue}"                        
+                        Style="{StaticResource SliderStyle}" IsEnabled="{Binding SuppliesEnabled}"/>
                 <Label Grid.Column="1" Grid.Row="6" Content="{Binding SuppliesValue}" Style="{StaticResource LabelStyle}" Margin="285,0,0,-30"/>
                 <Button Grid.Column="1" Grid.Row="7" Command="{Binding ExecuteSend}" Style="{StaticResource ButtonStyle}" Margin="125,0,0,0" Content="Send"/>
-                <Button Grid.Column="1" Grid.Row="7" Click="ClearButton_Click"  Command="{Binding Clear}" Style="{StaticResource ButtonStyle}" Margin="-125,0,0,0" Content="Clear"/>
+                <Button Grid.Column="1" Grid.Row="7" Click="ClearButton_Click" Command="{Binding Clear}" Style="{StaticResource ButtonStyle}" Margin="-125,0,0,0" Content="Clear"/>
            </Grid>
         </Grid>
     </Grid>

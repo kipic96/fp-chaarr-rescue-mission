@@ -61,6 +61,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CaptionAppTitle {
+            get {
+                return ResourceManager.GetString("CaptionAppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Asteroids.
         /// </summary>
         internal static string CaptionAsteroids {

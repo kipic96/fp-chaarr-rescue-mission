@@ -303,4 +303,7 @@
   <data name="CaptionSimulation" xml:space="preserve">
     <value>Simulation</value>
   </data>
+  <data name="CaptionAppTitle" xml:space="preserve">
+    <value />
+  </data>
 </root>

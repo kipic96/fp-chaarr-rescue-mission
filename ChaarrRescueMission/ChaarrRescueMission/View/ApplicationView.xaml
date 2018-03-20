@@ -16,7 +16,7 @@
             <ColumnDefinition Width="0.9*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Name="LeftGrid" Grid.Column="0">
+        <Grid Name="LeftGrid" Grid.Column="0" Margin="0,10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.6*"/>
                 <ColumnDefinition Width="*"/>
@@ -89,7 +89,7 @@
             <Button Grid.Column="0" Grid.Row="20" Command="{Binding SaveJson}" Style="{StaticResource ButtonStyle}" Content="Save Json"/>
             <Button Grid.Column="1" Grid.Row="20" Command="{Binding SwitchChaarrSimulation}" Style="{StaticResource ButtonStyle}" Width="250" Content="Switch Between Charr/Simulation"/>
         </Grid>
-        <Grid Name="RightGrid" Grid.Column="1">
+        <Grid Name="RightGrid" Grid.Column="1" Margin="0,10,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="0.6*"/>

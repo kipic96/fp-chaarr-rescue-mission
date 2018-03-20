@@ -291,4 +291,7 @@
   <data name="CaptionRetreat" xml:space="preserve">
     <value>Retreat</value>
   </data>
+  <data name="CaptionSuppliesDefault" xml:space="preserve">
+    <value>500</value>
+  </data>
 </root>

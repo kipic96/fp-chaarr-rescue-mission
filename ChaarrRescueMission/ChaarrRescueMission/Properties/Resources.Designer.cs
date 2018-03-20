@@ -529,6 +529,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 500.
+        /// </summary>
+        internal static string CaptionSuppliesDefault {
+            get {
+                return ResourceManager.GetString("CaptionSuppliesDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to survivorDeaths.
         /// </summary>
         internal static string CaptionSurvivorDeaths {

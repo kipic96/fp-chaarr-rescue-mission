@@ -134,7 +134,7 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        public int SuppliesValue { get; set; } = 500;
+        public int SuppliesValue { get; set; } = int.Parse(Resources.CaptionSuppliesDefault);
 
         public bool SuppliesEnabled
         {
@@ -160,6 +160,7 @@ namespace ChaarrRescueMission.ViewModel
 
         public IList<string> PosibleOrders { get; set; } = new List<string>()
         {
+            string.Empty,
             Resources.CaptionHelp,
             Resources.CaptionFinalWar,
             Resources.CaptionEvacScience,
@@ -249,6 +250,29 @@ namespace ChaarrRescueMission.ViewModel
                 return _saveJson;
             }
         }
+
+        private ICommand _clear;
+        public ICommand Clear
+        {
+            get
+            {
+                if (_clear == null)
+                {
+                    _clear = new NoParameterCommand(
+                        () =>
+                        {
+                            CurrentAction = PosibleActions[0];
+                            CurrentOrderType = PosibleOrders[0];
+                            CurrentPlace = PosiblePlaces[0];
+                            CurrentProduction = PosibleProductions[0];
+                            CurrentRepairing = PosibleRepairing[0];
+                            SuppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
+                        });
+                }
+                return _clear;
+            }
+        }
+
         #endregion Commands
     }
 }

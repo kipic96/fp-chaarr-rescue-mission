@@ -18,10 +18,7 @@ namespace ChaarrRescueMission.ViewModel
         public RescueMissionViewModel()
         {
             _communicationManager = new CommunicationManager(GameType.Simulation);
-            Json = _communicationManager.Send(new Cargo()
-            {
-                Command = Resources.CaptionRestart,
-            });
+            Json = _communicationManager.Restart();
             GameState = JsonConverter.Parse(Json);
         }
 
@@ -44,10 +41,7 @@ namespace ChaarrRescueMission.ViewModel
         private string _currentAction = string.Empty;
         public string CurrentAction
         {
-            get
-            {
-                return _currentAction;
-            }
+            get { return _currentAction; }
             set
             {
                 _currentAction = value;
@@ -62,10 +56,7 @@ namespace ChaarrRescueMission.ViewModel
         private string _currentProduction = string.Empty;
         public string CurrentProduction
         {
-            get
-            {
-                return _currentProduction;
-            }
+            get { return _currentProduction; }
             set
             {
                 _currentProduction = value;
@@ -76,10 +67,7 @@ namespace ChaarrRescueMission.ViewModel
         public int _suppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
         public int SuppliesValue
         {
-            get
-            {
-                return _suppliesValue;
-            }
+            get { return _suppliesValue; }
             set
             {
                 _suppliesValue = value;
@@ -102,10 +90,7 @@ namespace ChaarrRescueMission.ViewModel
         private GameType _gameType = GameType.Simulation;
         public GameType GameType
         {
-            get
-            {
-                return _gameType;
-            }
+            get { return _gameType; }
             set
             {
                 _gameType = value;
@@ -113,15 +98,10 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        private GameState _gameState;
+        private GameState _gameState = new GameState();
         public GameState GameState
         {
-            get
-            {
-                if (_gameState == null)
-                    _gameState = new GameState();
-                return _gameState;
-            }
+            get { return _gameState; }
             set
             {
                 _gameState = value;
@@ -133,7 +113,7 @@ namespace ChaarrRescueMission.ViewModel
 
         #region ViewDataSources
 
-        public IList<string> PosibleActions { get; set; } = new List<string>()
+        public IEnumerable<string> PosibleActions { get; set; } = new List<string>()
         {
             string.Empty,
             Resources.CaptionScan,
@@ -145,7 +125,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionRestart,
         };
         
-        public IList<string> PosibleRepairing { get; set; } = new List<string>()
+        public IEnumerable<string> PosibleRepairing { get; set; } = new List<string>()
         {
             string.Empty,
             Resources.CaptionChaarr,
@@ -157,7 +137,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionCommunications,
         };    
 
-        public IList<string> PosiblePlaces { get; set; } = new List<string>()
+        public IEnumerable<string> PosiblePlaces { get; set; } = new List<string>()
         {
             string.Empty,
             Resources.CaptionChaarr,
@@ -167,7 +147,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionPołudnica,
         };      
 
-        public IList<string> PosibleProductions { get; set; } = new List<string>()
+        public IEnumerable<string> PosibleProductions { get; set; } = new List<string>()
         {
             string.Empty,
             Resources.CaptionDecoy,
@@ -178,7 +158,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionShuttlewrench,
         };   
         
-        public IList<string> PosibleOrders { get; set; } = new List<string>()
+        public IEnumerable<string> PosibleOrders { get; set; } = new List<string>()
         {
             string.Empty,
             Resources.CaptionHelp,
@@ -192,134 +172,95 @@ namespace ChaarrRescueMission.ViewModel
 
         #region ControlsEnablingFlags
 
-        public bool RepairingEnabled
-        {
-            get
-            {
-                if (CurrentAction == Resources.CaptionRepair)
-                    return true;
-                return false;
-            }
-        }
-
         public bool PlacesEnabled
         {
             get
             {
-                if (CurrentAction == Resources.CaptionHarvest ||
+                return (CurrentAction == Resources.CaptionHarvest ||
                     CurrentAction == Resources.CaptionMove ||
                     CurrentAction == Resources.CaptionScan ||
-                    CurrentAction == Resources.CaptionOrder)
-                    return true;
-                return false;
+                    CurrentAction == Resources.CaptionOrder);
             }
+        }
+
+        public bool RepairingEnabled
+        {
+            get { return (CurrentAction == Resources.CaptionRepair); }
         }
 
         public bool SuppliesEnabled
         {
             get
             {
-                if (CurrentAction == Resources.CaptionProduce &&
-                    CurrentProduction == Resources.CaptionSupplies)
-                    return true;
-                return false;
+                return (CurrentAction == Resources.CaptionProduce &&
+                    CurrentProduction == Resources.CaptionSupplies);
             }
         }
 
         public bool ProductionsEnabled
         {
-            get
-            {
-                if (CurrentAction == Resources.CaptionProduce)
-                    return true;
-                return false;
-            }
+            get { return (CurrentAction == Resources.CaptionProduce); }
         }
 
         public bool OrdersEnabled
         {
-            get
-            {
-                if (CurrentAction == Resources.CaptionOrder)
-                    return true;
-                return false;
-            }
+            get { return (CurrentAction == Resources.CaptionOrder); }
         }
 
         #endregion ControlsEnablingFlags
 
         #region Commands
 
-        private ICommand _executeSendnd;
         public ICommand ExecuteSend
         {
             get
             {
-                if (_executeSendnd == null)
-                {
-                    _executeSendnd = new NoParameterCommand(
-                        () => ExecuteRequest(),
-                        () => CanExecuteRequest());
-                }
-                return _executeSendnd;
+                return new NoParameterCommand(
+                    () => ExecuteRequest(),
+                    () => CanExecuteRequest());
             }
         }
 
-        private ICommand _saveJson;
         public ICommand SaveJson
         {
             get
             {
-                if (_saveJson == null)
-                {
-                    _saveJson = new NoParameterCommand(
-                        () => FileManager.SaveToFile(Json));
-                }
-                return _saveJson;
+                return new NoParameterCommand(
+                    () => FileManager.SaveToFile(Json));
             }
         }
 
-        private ICommand _clear;
         public ICommand Clear
         {
             get
             {
-                if (_clear == null)
-                {
-                    _clear = new NoParameterCommand(
-                        () =>
-                        {
-                            CurrentAction = string.Empty;
-                            CurrentOrderType = string.Empty;
-                            CurrentPlace = string.Empty;
-                            CurrentProduction = string.Empty;
-                            CurrentRepairing = string.Empty;
-                            SuppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
-                        });
-                }
-                return _clear;
+                return new NoParameterCommand(
+                    () =>
+                    {
+                        CurrentAction = string.Empty;
+                        CurrentOrderType = string.Empty;
+                        CurrentPlace = string.Empty;
+                        CurrentProduction = string.Empty;
+                        CurrentRepairing = string.Empty;
+                        SuppliesValue = int.Parse(Resources.CaptionSuppliesDefault);
+                    });
             }
         }
 
-        private ICommand _switchChaarrSimulation;
         public ICommand SwitchChaarrSimulation
         {
             get
             {
-                if (_switchChaarrSimulation == null)
-                {
-                    _switchChaarrSimulation = new NoParameterCommand(
-                        () =>
-                        {
-                            if (GameType == GameType.Chaarr)
-                                GameType = GameType.Simulation;
-                            else
-                                GameType = GameType.Chaarr;
-                            _communicationManager = new CommunicationManager(GameType);
-                        },
-                        () => IsGameTerminated());
-                }
-                return _switchChaarrSimulation;
+                return new NoParameterCommand(
+                    () =>
+                    {
+                        if (GameType == GameType.Chaarr)
+                            GameType = GameType.Simulation;
+                        else
+                            GameType = GameType.Chaarr;
+                        _communicationManager = new CommunicationManager(GameType);
+                    },
+                    () => IsGameTerminated());
             }
         }
 

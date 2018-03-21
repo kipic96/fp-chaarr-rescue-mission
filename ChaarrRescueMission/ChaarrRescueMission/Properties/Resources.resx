@@ -339,4 +339,13 @@
   <data name="CaptionMaxChaarrHatred" xml:space="preserve">
     <value>180.0</value>
   </data>
+  <data name="CaptionFileJsonDefault" xml:space="preserve">
+    <value>jsonOutput.json</value>
+  </data>
+  <data name="CaptionFileJsonDot" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="CaptionFileJsonFilter" xml:space="preserve">
+    <value>JSON File (.json)|*.json</value>
+  </data>
 </root>

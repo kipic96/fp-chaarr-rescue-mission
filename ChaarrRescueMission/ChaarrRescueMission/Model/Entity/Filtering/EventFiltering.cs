@@ -9,7 +9,7 @@ namespace ChaarrRescueMission.Model.Entity.Filtering
         /// <summary>
         /// Filters events lists and deletes from them unnessecery events.
         /// </summary>
-        public static IList<string> Filter(IList<string> list)
+        public static IEnumerable<string> Filter(IEnumerable<string> list)
         {
             return list.Where(Event =>
                     Event != Resources.CaptionEventExpeditionEnergyChanged &&
@@ -21,7 +21,7 @@ namespace ChaarrRescueMission.Model.Entity.Filtering
                     Event != Resources.CaptionEventCrewDeathsChanged &&
                     Event != Resources.CaptionEventSurvivorDeathsChanged &&
                     Event != Resources.CaptionEventUpkeepTime
-                ).ToList();
+                ).Reverse().ToList();
         }
     }
 }

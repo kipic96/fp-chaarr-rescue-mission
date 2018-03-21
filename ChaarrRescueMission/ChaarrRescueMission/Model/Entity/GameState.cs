@@ -4,69 +4,26 @@ using System.ComponentModel;
 
 namespace ChaarrRescueMission.Model.Entity
 {
-    class GameState : INotifyPropertyChanged
+    class GameState 
     {
         public string Turn { get; set; }
         public string Location { get; set; }
-        private IList<string> _events;
-        public IList<string> Events
+        private IEnumerable<string> _events;
+        public IEnumerable<string> Events
         {
-            get
-            {
-                return _events;
-            }
-            set
-            {
-                _events = EventFiltering.Filter(value);
-            }
+            get { return _events; }
+            set { _events = EventFiltering.Filter(value); }
         }
-        private IList<string> _lastEvents;
-        public IList<string> LastTurnEvents
+        private IEnumerable<string> _lastEvents;
+        public IEnumerable<string> LastTurnEvents
         {
-            get
-            {
-                return _lastEvents;
-            }
-            set
-            {
-                _lastEvents = EventFiltering.Filter(value);
-            }
+            get { return _lastEvents; }
+            set { _lastEvents = EventFiltering.Filter(value); }
         }
-        public IList<string> Equipments { get; set; }
-        public IList<string> LogBook { get; set; }
-        private Scores _scores;
-        public Scores Scores
-        {
-            get { return _scores; }
-            set
-            {
-                _scores = value;
-                RaisePropertyChanged(nameof(Scores));
-            }
-        }
-        private Parameters _parameters;
-        public Parameters Parameters    
-        {
-            get { return _parameters; }
-            set
-            {
-                _parameters = value;
-                RaisePropertyChanged(nameof(Parameters));
-            }
-        }
+        public IEnumerable<string> Equipments { get; set; }
+        public IEnumerable<string> LogBook { get; set; }
+        public Scores Scores { get; set; }
+        public Parameters Parameters { get; set; }
         public string IsTerminated { get; set; }
-
-
-        public virtual void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
-            if (handler != null)
-            {
-                var e = new PropertyChangedEventArgs(propertyName);
-                handler(this, e);
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

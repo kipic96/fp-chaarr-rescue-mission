@@ -9,8 +9,8 @@ namespace ChaarrRescueMission.Model
 {
     class CommunicationManager
     {
-        private string executeConnectionString;
-        private string describeConnectionString;
+        private string _executeConnectionString;
+        private string _describeConnectionString;
 
         /// <summary>
         /// Constructor which sets game type configuration, Chaarr or Simulation.
@@ -20,12 +20,12 @@ namespace ChaarrRescueMission.Model
             switch (gameType)
             {
                 case GameType.Chaarr:
-                    executeConnectionString = Resources.CaptionChaarrExecute;
-                    describeConnectionString = Resources.CaptionChaarrDescribe;
+                    _executeConnectionString = Resources.CaptionChaarrExecute;
+                    _describeConnectionString = Resources.CaptionChaarrDescribe;
                     break;
                 case GameType.Simulation:
-                    executeConnectionString = Resources.CaptionSimulationExecute;
-                    describeConnectionString = Resources.CaptionSimulationDescribe;
+                    _executeConnectionString = Resources.CaptionSimulationExecute;
+                    _describeConnectionString = Resources.CaptionSimulationDescribe;
                     break;
             }
         }
@@ -35,13 +35,13 @@ namespace ChaarrRescueMission.Model
         /// </summary>
         public string Send(Cargo cargo)
         {
-            var executeClient = new RestClient(executeConnectionString);
+            var executeClient = new RestClient(_executeConnectionString);
             var executeRequest = CreateJsonRequest(JsonConverter.Parse(cargo));
             IRestResponse executeResponse = executeClient.Execute(executeRequest);
             if (executeResponse.StatusCode != HttpStatusCode.OK)
                 return executeResponse.ErrorMessage;
 
-            var describeClient = new RestClient(describeConnectionString);
+            var describeClient = new RestClient(_describeConnectionString);
             var describeRequest = new RestRequest(Method.GET);
             IRestResponse describeResponse = describeClient.Execute(describeRequest);
             if (describeResponse.StatusCode == HttpStatusCode.OK)
@@ -49,7 +49,20 @@ namespace ChaarrRescueMission.Model
                 return describeResponse.Content;
             }
             else
+            {
                 return describeResponse.ErrorMessage;
+            }
+        }
+
+        /// <summary>
+        /// Restarts the game, used at start of application.
+        /// </summary>
+        public string Restart()
+        {
+            return Send(new Cargo()
+            {
+                Command = Resources.CaptionRestart,
+            });
         }
 
         /// <summary>

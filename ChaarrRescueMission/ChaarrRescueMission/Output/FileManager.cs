@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using ChaarrRescueMission.Properties;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System.IO;
 
@@ -7,12 +8,19 @@ namespace ChaarrRescueMission.Output
 {
     class FileManager
     {
+        /// <summary>
+        /// Calls Open File Dialog, user selects path to save file 
+        /// and file is saved.
+        /// </summary>
+        /// <param name="json"></param>
         public static void SaveToFile(string json)
         {
-            var dlg = new SaveFileDialog();
-            dlg.FileName = "jsonOutput.json";
-            dlg.DefaultExt = ".";
-            dlg.Filter = "JSON File (.json)|*.json";
+            var dlg = new SaveFileDialog
+            {
+                FileName = Resources.CaptionFileJsonDefault,
+                DefaultExt = Resources.CaptionFileJsonDot,
+                Filter = Resources.CaptionFileJsonFilter
+            };
 
             bool? result = dlg.ShowDialog();
 

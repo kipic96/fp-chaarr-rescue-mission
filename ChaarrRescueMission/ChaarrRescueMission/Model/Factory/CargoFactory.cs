@@ -3,7 +3,7 @@ using ChaarrRescueMission.Properties;
 
 namespace ChaarrRescueMission.Model.Factory
 {
-    class CargoFactory
+    public class CargoFactory
     {
         /// <summary>
         /// Enum Cargo Type which defines what cargo should contain.

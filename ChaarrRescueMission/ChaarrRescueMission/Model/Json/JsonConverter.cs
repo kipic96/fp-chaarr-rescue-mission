@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ChaarrRescueMission.Model.Json
 {
-    class JsonConverter
+    public class JsonConverter
     {
         /// <summary>
         /// Conversion from Json string to GameState object

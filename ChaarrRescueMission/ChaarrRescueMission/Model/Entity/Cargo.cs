@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace ChaarrRescueMission.Model.Entity
 {
-    class Cargo
+    public class Cargo
     {
         public string Command { get; set; }
         public string Login = Resources.CaptionLogin;

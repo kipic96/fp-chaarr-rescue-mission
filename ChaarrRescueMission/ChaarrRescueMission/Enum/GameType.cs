@@ -1,6 +1,6 @@
 ﻿namespace ChaarrRescueMission.Enum
 {
-    enum GameType
+    public enum GameType
     {
         Simulation,
         Chaarr,

@@ -7,7 +7,7 @@ using System.Net;
 
 namespace ChaarrRescueMission.Model
 {
-    class CommunicationManager
+    public class CommunicationManager
     {
         private string _executeConnectionString;
         private string _describeConnectionString;

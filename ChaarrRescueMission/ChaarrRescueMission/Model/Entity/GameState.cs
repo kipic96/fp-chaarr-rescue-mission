@@ -1,10 +1,11 @@
 ﻿using ChaarrRescueMission.Model.Entity.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace ChaarrRescueMission.Model.Entity
 {
-    class GameState 
+    public class GameState 
     {
         public string Turn { get; set; }
         public string Location { get; set; }
@@ -20,8 +21,14 @@ namespace ChaarrRescueMission.Model.Entity
             get { return _lastEvents; }
             set { _lastEvents = EventFiltering.Filter(value); }
         }
+
+        private IEnumerable<string> _logBook;
+        public IEnumerable<string> LogBook
+        {
+            get { return _logBook; }
+            set { _logBook = value.Reverse(); }
+        }        
         public IEnumerable<string> Equipments { get; set; }
-        public IEnumerable<string> LogBook { get; set; }
         public Scores Scores { get; set; }
         public Parameters Parameters { get; set; }
         public string IsTerminated { get; set; }

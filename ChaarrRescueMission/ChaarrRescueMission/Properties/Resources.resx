@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CaptionCacheControl" xml:space="preserve">
+    <value>cache-control</value>
+  </data>
+  <data name="CaptionChaarrHatred" xml:space="preserve">
+    <value>chaarrHatred</value>
+  </data>
+  <data name="CaptionContentType" xml:space="preserve">
+    <value>content-type</value>
+  </data>
+  <data name="CaptionCrewDeaths" xml:space="preserve">
+    <value>crewDeaths</value>
+  </data>
+  <data name="CaptionEquipments" xml:space="preserve">
+    <value>equipments</value>
+  </data>
+  <data name="CaptionEvents" xml:space="preserve">
+    <value>events</value>
+  </data>
+  <data name="CaptionExpeditionEnergy" xml:space="preserve">
+    <value>expeditionEnergy</value>
+  </data>
+  <data name="CaptionExpeditionMatter" xml:space="preserve">
+    <value>expeditionMatter</value>
+  </data>
+  <data name="CaptionSimulationDescribe" xml:space="preserve">
+    <value>https://simulation.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0</value>
+  </data>
+  <data name="CaptionJsonApp" xml:space="preserve">
+    <value>application/json</value>
+  </data>
+  <data name="CaptionKnowledge" xml:space="preserve">
+    <value>knowledge</value>
+  </data>
+  <data name="CaptionLastTurnEvents" xml:space="preserve">
+    <value>lastTurnEvents</value>
+  </data>
+  <data name="CaptionLocation" xml:space="preserve">
+    <value>location</value>
+  </data>
+  <data name="CaptionLogBook" xml:space="preserve">
+    <value>logBook</value>
+  </data>
+  <data name="CaptionLogin" xml:space="preserve">
+    <value>marcin.chilicki96@gmail.com.google</value>
+  </data>
+  <data name="CaptionNoCache" xml:space="preserve">
+    <value>no-cache</value>
+  </data>
+  <data name="CaptionParameters" xml:space="preserve">
+    <value>parameters</value>
+  </data>
+  <data name="CaptionPoludnicaEnergy" xml:space="preserve">
+    <value>poludnicaEnergy</value>
+  </data>
+  <data name="CaptionPoludnicaMatter" xml:space="preserve">
+    <value>poludnicaMatter</value>
+  </data>
+  <data name="CaptionSimulationExecute" xml:space="preserve">
+    <value>https://simulation.future-processing.pl/execute</value>
+  </data>
+  <data name="CaptionSavedScience" xml:space="preserve">
+    <value>savedScience</value>
+  </data>
+  <data name="CaptionSavedSurvivors" xml:space="preserve">
+    <value>savedSurvivors</value>
+  </data>
+  <data name="CaptionScore" xml:space="preserve">
+    <value>scores</value>
+  </data>
+  <data name="CaptionScoreCrewMalus" xml:space="preserve">
+    <value>crewMalus</value>
+  </data>
+  <data name="CaptionScoreEvent" xml:space="preserve">
+    <value>eventScore</value>
+  </data>
+  <data name="CaptionScoreKnowledge" xml:space="preserve">
+    <value>knowledgeScore</value>
+  </data>
+  <data name="CaptionScoreScience" xml:space="preserve">
+    <value>scienceScore</value>
+  </data>
+  <data name="CaptionScoreSurvivors" xml:space="preserve">
+    <value>survivorsScore</value>
+  </data>
+  <data name="CaptionScoreTotal" xml:space="preserve">
+    <value>totalScore</value>
+  </data>
+  <data name="CaptionSurvivorDeaths" xml:space="preserve">
+    <value>survivorDeaths</value>
+  </data>
+  <data name="CaptionSurvivors" xml:space="preserve">
+    <value>savedSurvivors</value>
+  </data>
+  <data name="CaptionToken" xml:space="preserve">
+    <value>6C35BC6A4453674C7BA4E0A9E776BEF0</value>
+  </data>
+  <data name="CaptionTurn" xml:space="preserve">
+    <value>turn</value>
+  </data>
+  <data name="CaptionAsteroids" xml:space="preserve">
+    <value>Asteroids</value>
+  </data>
+  <data name="CaptionChaarr" xml:space="preserve">
+    <value>Chaarr</value>
+  </data>
+  <data name="CaptionEsthajnalcsillag" xml:space="preserve">
+    <value>Esthajnalcsillag</value>
+  </data>
+  <data name="CaptionPołudnica" xml:space="preserve">
+    <value>Południca</value>
+  </data>
+  <data name="CaptionShuttle" xml:space="preserve">
+    <value>Shuttle</value>
+  </data>
+  <data name="CaptionCommunications" xml:space="preserve">
+    <value>Communications</value>
+  </data>
+  <data name="CaptionDecoy" xml:space="preserve">
+    <value>Decoy</value>
+  </data>
+  <data name="CaptionEnergy" xml:space="preserve">
+    <value>Energy</value>
+  </data>
+  <data name="CaptionHarvest" xml:space="preserve">
+    <value>Harvest</value>
+  </data>
+  <data name="CaptionMove" xml:space="preserve">
+    <value>MoveTo</value>
+  </data>
+  <data name="CaptionOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="CaptionPartialshuttle" xml:space="preserve">
+    <value>Partialshuttle</value>
+  </data>
+  <data name="CaptionProduce" xml:space="preserve">
+    <value>Produce</value>
+  </data>
+  <data name="CaptionRepair" xml:space="preserve">
+    <value>Repair</value>
+  </data>
+  <data name="CaptionScan" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="CaptionShuttlewrench" xml:space="preserve">
+    <value>Shuttlewrench</value>
+  </data>
+  <data name="CaptionSupplies" xml:space="preserve">
+    <value>Supplies</value>
+  </data>
+  <data name="CaptionTools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="CaptionWeapons" xml:space="preserve">
+    <value>Weapons</value>
+  </data>
+  <data name="CaptionEvacScience" xml:space="preserve">
+    <value>EvacScience</value>
+  </data>
+  <data name="CaptionEvacSurvivors" xml:space="preserve">
+    <value>EvacSurvivors</value>
+  </data>
+  <data name="CaptionFinalWar" xml:space="preserve">
+    <value>FinalWar</value>
+  </data>
+  <data name="CaptionHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="CaptionRestart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="CaptionRetreat" xml:space="preserve">
+    <value>Retreat</value>
+  </data>
+  <data name="CaptionSuppliesDefault" xml:space="preserve">
+    <value>500</value>
+  </data>
+  <data name="CaptionChaarrDescribe" xml:space="preserve">
+    <value>https://chaarr.future-processing.pl/describe?login=marcin.chilicki96@gmail.com.google&amp;token=6C35BC6A4453674C7BA4E0A9E776BEF0</value>
+  </data>
+  <data name="CaptionChaarrExecute" xml:space="preserve">
+    <value>https://chaarr.future-processing.pl/execute</value>
+  </data>
+  <data name="CaptionSimulation" xml:space="preserve">
+    <value>Simulation</value>
+  </data>
+  <data name="CaptionAppTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CaptionEventChaarrHatredChanged" xml:space="preserve">
+    <value>ChaarrHatredChanged</value>
+  </data>
+  <data name="CaptionEventCrewDeathsChanged" xml:space="preserve">
+    <value>CrewDeathsChanged</value>
+  </data>
+  <data name="CaptionEventExpeditionEnergyChanged" xml:space="preserve">
+    <value>ExpeditionEnergyChanged</value>
+  </data>
+  <data name="CaptionEventExpeditionMatterChanged" xml:space="preserve">
+    <value>ExpeditionMatterChanged</value>
+  </data>
+  <data name="CaptionEventKnowledgeChanged" xml:space="preserve">
+    <value>KnowledgeChanged</value>
+  </data>
+  <data name="CaptionEventPołudnicaEnergyChanged" xml:space="preserve">
+    <value>PołudnicaEnergyChanged</value>
+  </data>
+  <data name="CaptionEventPołudnicaMatterChanged" xml:space="preserve">
+    <value>PołudnicaMatterChanged</value>
+  </data>
+  <data name="CaptionEventSurvivorDeathsChanged" xml:space="preserve">
+    <value>SurvivorDeathsChanged</value>
+  </data>
+  <data name="CaptionEventUpkeepTime" xml:space="preserve">
+    <value>UpkeepTime</value>
+  </data>
+  <data name="CaptionEventNotEnoughMinerals" xml:space="preserve">
+    <value>NotEnoughMinerals</value>
+  </data>
+  <data name="CaptionMaxChaarrHatred" xml:space="preserve">
+    <value>180.0</value>
+  </data>
+  <data name="CaptionFileJsonDefault" xml:space="preserve">
+    <value>jsonOutput.json</value>
+  </data>
+  <data name="CaptionFileJsonDot" xml:space="preserve">
+    <value>.</value>
+  </data>
+  <data name="CaptionFileJsonFilter" xml:space="preserve">
+    <value>JSON File (.json)|*.json</value>
+  </data>
+</root>

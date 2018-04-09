@@ -348,4 +348,19 @@
   <data name="CaptionFileTitle" xml:space="preserve">
     <value>LogReport.txt</value>
   </data>
+  <data name="CaptionFileCommand" xml:space="preserve">
+    <value>Command=</value>
+  </data>
+  <data name="CaptionFileParameter" xml:space="preserve">
+    <value>Parameter=</value>
+  </data>
+  <data name="CaptionFileTurn" xml:space="preserve">
+    <value>Turn=</value>
+  </data>
+  <data name="CaptionFileValue" xml:space="preserve">
+    <value>Value=</value>
+  </data>
+  <data name="CaptionFirstTurn" xml:space="preserve">
+    <value>1.0</value>
+  </data>
 </root>

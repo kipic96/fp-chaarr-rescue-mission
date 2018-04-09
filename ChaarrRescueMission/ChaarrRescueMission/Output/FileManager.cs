@@ -1,48 +1,38 @@
-﻿using ChaarrRescueMission.Model.Entity.Cargos;
+﻿using ChaarrRescueMission.Model.Entity;
+using ChaarrRescueMission.Model.Entity.Cargos;
+using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Properties;
-using Microsoft.Win32;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
-
 
 namespace ChaarrRescueMission.Output
 {
     class FileManager
     {
-        /// <summary>
-        /// Calls Open File Dialog, user selects path to save file 
-        /// and file is saved.
-        /// </summary>
-        /// <param name="json"></param>
-        public static void SaveToFile(string json)
+        public static void ToFile(string pathFile, Cargo cargo, int turn)
         {
-            var dlg = new SaveFileDialog
+            var turnString = $"{Resources.CaptionFileTurn}{turn.ToString()} ";
+            var command = cargo.Command != null ? $"{Resources.CaptionFileCommand}{cargo.Command} " : string.Empty;
+            var parameter = cargo.Parameter != null ? $"{Resources.CaptionFileParameter}{cargo.Parameter} " : string.Empty;
+            var value = cargo.Value != null ? $"{Resources.CaptionFileValue}{cargo.Value} " : string.Empty;
+            using (TextWriter textWriter = new StreamWriter(pathFile, append: true))
             {
-                FileName = Resources.CaptionFileLogDefault,
-                DefaultExt = Resources.CaptionFileLogDot,
-                Filter = Resources.CaptionFileLogFilter,
-                InitialDirectory = AppDomain.CurrentDomain.BaseDirectory,
-            };
-
-            bool? result = dlg.ShowDialog();
-
-            if (result.HasValue && result.Value)
-            {
-                using (StreamWriter file = File.CreateText(dlg.FileName))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, json);
-                }
-            }
+                textWriter.WriteLine(turnString + command + parameter + value + Environment.NewLine);
+            }            
         }
 
-        public static void ToFile(string pathFile, Cargo cargo)
+        public static void ToFile(string pathFile, GameState gameState)
         {
-            var command = cargo.Command == null ? $"Command = {cargo.Command}" : string.Empty;
-            var parameter = cargo.Parameter == null ? $"Parameter = {cargo.Parameter}" : string.Empty;
-            var value = cargo.Value == null ? $"Value = {cargo.Value}" : string.Empty;
-            File.AppendAllText(pathFile, command + parameter + value);
+            string jsonFormatted = JValue.Parse(JsonConvert.SerializeObject(gameState, new JsonSerializerSettings()
+            {
+                ContractResolver = new JsonPropertiesResolver(),
+            })).ToString(Formatting.Indented);
+            using (TextWriter textWriter = new StreamWriter(pathFile, append: gameState.Turn == Resources.CaptionFirstTurn ? false : true))
+            {
+                textWriter.WriteLine(jsonFormatted + Environment.NewLine);
+            }
         }
     }
 }

@@ -313,6 +313,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command=.
+        /// </summary>
+        internal static string CaptionFileCommand {
+            get {
+                return ResourceManager.GetString("CaptionFileCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to jsonOutput.json.
         /// </summary>
         internal static string CaptionFileLogDefault {
@@ -340,6 +349,15 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parameter=.
+        /// </summary>
+        internal static string CaptionFileParameter {
+            get {
+                return ResourceManager.GetString("CaptionFileParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LogReport.txt.
         /// </summary>
         internal static string CaptionFileTitle {
@@ -349,11 +367,38 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn=.
+        /// </summary>
+        internal static string CaptionFileTurn {
+            get {
+                return ResourceManager.GetString("CaptionFileTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value=.
+        /// </summary>
+        internal static string CaptionFileValue {
+            get {
+                return ResourceManager.GetString("CaptionFileValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FinalWar.
         /// </summary>
         internal static string CaptionFinalWar {
             get {
                 return ResourceManager.GetString("CaptionFinalWar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0.
+        /// </summary>
+        internal static string CaptionFirstTurn {
+            get {
+                return ResourceManager.GetString("CaptionFirstTurn", resourceCulture);
             }
         }
         

@@ -5,14 +5,8 @@ namespace ChaarrRescueMission.Model.Cargos
 {
     public class CargoFactory
     {
-        /// <summary>
-        /// Enum Cargo Type which defines what cargo should contain.
-        /// </summary>
         private enum CargoType { Restart, Place, ProductSupplies, ProductNoSupplies, Repair, Order, NoCargo }
 
-        /// <summary>
-        /// Creates Cargo object which will be sens through Json. 
-        /// </summary>
         public static Cargo Create(string action,
             string place, string repairing, string production, string order, string suppliesValue)
         {

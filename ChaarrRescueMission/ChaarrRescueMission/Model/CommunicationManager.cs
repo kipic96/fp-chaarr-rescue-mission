@@ -1,6 +1,4 @@
-﻿using ChaarrRescueMission.Enum;
-using ChaarrRescueMission.Model.Entity;
-using ChaarrRescueMission.Model.Entity.Cargos;
+﻿using ChaarrRescueMission.Model.Entity.Cargos;
 using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Properties;
 using RestSharp;
@@ -10,33 +8,15 @@ namespace ChaarrRescueMission.Model
 {
     public class CommunicationManager
     {
-        private string _executeConnectionString;
-        private string _describeConnectionString;
-
-        /// <summary>
-        /// Constructor which sets game type configuration, Chaarr or Simulation.
-        /// </summary>
-        public CommunicationManager(GameType gameType)
-        {
-            switch (gameType)
-            {
-                case GameType.Chaarr:
-                    _executeConnectionString = Resources.CaptionChaarrExecute;
-                    _describeConnectionString = Resources.CaptionChaarrDescribe;
-                    break;
-                case GameType.Simulation:
-                    _executeConnectionString = Resources.CaptionSimulationExecute;
-                    _describeConnectionString = Resources.CaptionSimulationDescribe;
-                    break;
-            }
-        }
+        public string ExecuteConnectionString { get; set; }
+        public string DescribeConnectionString { get; set; }
 
         /// <summary>
         /// Sends Cargo (Action) through Json to server and receives Json's server response.
         /// </summary>
-        public string Send(Entity.Cargos.Cargo cargo)
+        public string Send(Cargo cargo)
         {
-            var executeClient = CreateClient(_executeConnectionString);
+            var executeClient = CreateClient(ExecuteConnectionString);
 
             var executeRequest = CreateJsonRequest(JsonConverter.Parse(cargo));
             IRestResponse executeResponse = executeClient.Execute(executeRequest);
@@ -44,7 +24,7 @@ namespace ChaarrRescueMission.Model
             if (executeResponse.StatusCode != HttpStatusCode.OK)
                 return executeResponse.ErrorMessage;
 
-            var describeClient = CreateClient(_describeConnectionString);
+            var describeClient = CreateClient(DescribeConnectionString);
             var describeRequest = new RestRequest(Method.GET);
             IRestResponse describeResponse = describeClient.Execute(describeRequest);
             if (describeResponse.StatusCode == HttpStatusCode.OK)
@@ -58,11 +38,11 @@ namespace ChaarrRescueMission.Model
         }
 
         /// <summary>
-        /// Restarts the game, used at start of application.
+        /// Restarts the game.
         /// </summary>
         public string Restart()
         {
-            return Send(new Entity.Cargos.Cargo()
+            return Send(new Cargo()
             {
                 Command = Resources.CaptionRestart,
             });
@@ -81,6 +61,9 @@ namespace ChaarrRescueMission.Model
             return request;
         }
 
+        /// <summary>
+        /// Creates RestClient with Security Protocol.
+        /// </summary>
         private RestClient CreateClient(string url)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;

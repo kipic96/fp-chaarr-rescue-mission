@@ -6,9 +6,6 @@ namespace ChaarrRescueMission.Model.Json
 {
     public class JsonConverter
     {
-        /// <summary>
-        /// Conversion from Json string to GameState object
-        /// </summary>
         public static GameState Parse(string json)
         {
             var gameState = new GameState();
@@ -20,10 +17,7 @@ namespace ChaarrRescueMission.Model.Json
             return gameState;
         }
 
-        /// <summary>
-        /// Conversion from Cargo object to Json string
-        /// </summary>
-        public static string Parse(Cargo cargo)
+        public static string Parse(Entity.Cargos.Cargo cargo)
         {
             return JsonConvert.SerializeObject(cargo, Formatting.Indented,
                 new JsonSerializerSettings

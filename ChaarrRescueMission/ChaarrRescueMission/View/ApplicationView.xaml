@@ -39,10 +39,7 @@
                 <view:LabelledTextBox Label="ExpeditionMatter" Text="{Binding GameState.Parameters.ExpeditionMatter}"/>
                 <view:LabelledTextBox Label="ExpeditionEnergy" Text="{Binding GameState.Parameters.ExpeditionEnergy}"/>
                 <view:LabelledTextBox Label="IsTerminated" Text="{Binding GameState.IsTerminated}"/>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Save Json" Command="{Binding SaveJson}" Style="{StaticResource ButtonStyle}" Margin="45,20,0,0"/>
-                    <Button Content="Switch Between Charr/Simulation" Command="{Binding SwitchChaarrSimulation}" Style="{StaticResource ButtonStyle}" Margin="48,20,0,0" Width="250"/>
-                </StackPanel>
+                <Button Content="Switch Between Charr/Simulation" Command="{Binding SwitchChaarrSimulation}" Style="{StaticResource ButtonStyle}" Margin="170,20,0,0" Width="250"/>
             </view:LayoutGroup>
     
               </Grid>

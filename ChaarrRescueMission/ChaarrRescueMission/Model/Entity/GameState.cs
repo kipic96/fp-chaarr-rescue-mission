@@ -1,6 +1,6 @@
 ﻿using ChaarrRescueMission.Model.Entity.Filtering;
+using ChaarrRescueMission.Model.Json;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace ChaarrRescueMission.Model.Entity
@@ -10,6 +10,7 @@ namespace ChaarrRescueMission.Model.Entity
         public string Turn { get; set; }
         public string Location { get; set; }
         private IEnumerable<string> _events;
+        [JsonIgnoreSerialization]
         public IEnumerable<string> Events
         {
             get { return _events; }

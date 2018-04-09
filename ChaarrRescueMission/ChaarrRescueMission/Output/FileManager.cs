@@ -1,36 +1,37 @@
-﻿using ChaarrRescueMission.Properties;
-using Microsoft.Win32;
+﻿using ChaarrRescueMission.Model.Entity;
+using ChaarrRescueMission.Model.Entity.Cargos;
+using ChaarrRescueMission.Model.Json;
+using ChaarrRescueMission.Properties;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.IO;
-
 
 namespace ChaarrRescueMission.Output
 {
     class FileManager
     {
-        /// <summary>
-        /// Calls Open File Dialog, user selects path to save file 
-        /// and file is saved.
-        /// </summary>
-        /// <param name="json"></param>
-        public static void SaveToFile(string json)
+        public static void ToFile(string pathFile, Cargo cargo, int turn)
         {
-            var dlg = new SaveFileDialog
+            var turnString = $"{Resources.CaptionFileTurn}{turn.ToString()} ";
+            var command = cargo.Command != null ? $"{Resources.CaptionFileCommand}{cargo.Command} " : string.Empty;
+            var parameter = cargo.Parameter != null ? $"{Resources.CaptionFileParameter}{cargo.Parameter} " : string.Empty;
+            var value = cargo.Value != null ? $"{Resources.CaptionFileValue}{cargo.Value} " : string.Empty;
+            using (TextWriter textWriter = new StreamWriter(pathFile, append: true))
             {
-                FileName = Resources.CaptionFileJsonDefault,
-                DefaultExt = Resources.CaptionFileJsonDot,
-                Filter = Resources.CaptionFileJsonFilter
-            };
+                textWriter.WriteLine(turnString + command + parameter + value + Environment.NewLine);
+            }            
+        }
 
-            bool? result = dlg.ShowDialog();
-
-            if (result.HasValue && result.Value)
+        public static void ToFile(string pathFile, GameState gameState)
+        {
+            string jsonFormatted = JValue.Parse(JsonConvert.SerializeObject(gameState, new JsonSerializerSettings()
             {
-                using (StreamWriter file = File.CreateText(dlg.FileName))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, json);
-                }
+                ContractResolver = new JsonPropertiesResolver(),
+            })).ToString(Formatting.Indented);
+            using (TextWriter textWriter = new StreamWriter(pathFile, append: gameState.Turn == Resources.CaptionFirstTurn ? false : true))
+            {
+                textWriter.WriteLine(jsonFormatted + Environment.NewLine);
             }
         }
     }

@@ -61,15 +61,6 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string CaptionAppTitle {
-            get {
-                return ResourceManager.GetString("CaptionAppTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Asteroids.
         /// </summary>
         internal static string CaptionAsteroids {
@@ -322,29 +313,74 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command=.
+        /// </summary>
+        internal static string CaptionFileCommand {
+            get {
+                return ResourceManager.GetString("CaptionFileCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to jsonOutput.json.
         /// </summary>
-        internal static string CaptionFileJsonDefault {
+        internal static string CaptionFileLogDefault {
             get {
-                return ResourceManager.GetString("CaptionFileJsonDefault", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogDefault", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ..
         /// </summary>
-        internal static string CaptionFileJsonDot {
+        internal static string CaptionFileLogDot {
             get {
-                return ResourceManager.GetString("CaptionFileJsonDot", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogDot", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to JSON File (.json)|*.json.
         /// </summary>
-        internal static string CaptionFileJsonFilter {
+        internal static string CaptionFileLogFilter {
             get {
-                return ResourceManager.GetString("CaptionFileJsonFilter", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameter=.
+        /// </summary>
+        internal static string CaptionFileParameter {
+            get {
+                return ResourceManager.GetString("CaptionFileParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogReport.txt.
+        /// </summary>
+        internal static string CaptionFileTitle {
+            get {
+                return ResourceManager.GetString("CaptionFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn=.
+        /// </summary>
+        internal static string CaptionFileTurn {
+            get {
+                return ResourceManager.GetString("CaptionFileTurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value=.
+        /// </summary>
+        internal static string CaptionFileValue {
+            get {
+                return ResourceManager.GetString("CaptionFileValue", resourceCulture);
             }
         }
         
@@ -354,6 +390,15 @@ namespace ChaarrRescueMission.Properties {
         internal static string CaptionFinalWar {
             get {
                 return ResourceManager.GetString("CaptionFinalWar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0.
+        /// </summary>
+        internal static string CaptionFirstTurn {
+            get {
+                return ResourceManager.GetString("CaptionFirstTurn", resourceCulture);
             }
         }
         

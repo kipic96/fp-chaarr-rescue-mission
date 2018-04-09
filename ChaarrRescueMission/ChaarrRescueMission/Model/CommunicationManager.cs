@@ -1,5 +1,6 @@
 ﻿using ChaarrRescueMission.Enum;
 using ChaarrRescueMission.Model.Entity;
+using ChaarrRescueMission.Model.Entity.Cargos;
 using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Properties;
 using RestSharp;
@@ -33,15 +34,17 @@ namespace ChaarrRescueMission.Model
         /// <summary>
         /// Sends Cargo (Action) through Json to server and receives Json's server response.
         /// </summary>
-        public string Send(Cargo cargo)
+        public string Send(Entity.Cargos.Cargo cargo)
         {
-            var executeClient = new RestClient(_executeConnectionString);
+            var executeClient = CreateClient(_executeConnectionString);
+
             var executeRequest = CreateJsonRequest(JsonConverter.Parse(cargo));
             IRestResponse executeResponse = executeClient.Execute(executeRequest);
+            
             if (executeResponse.StatusCode != HttpStatusCode.OK)
                 return executeResponse.ErrorMessage;
 
-            var describeClient = new RestClient(_describeConnectionString);
+            var describeClient = CreateClient(_describeConnectionString);
             var describeRequest = new RestRequest(Method.GET);
             IRestResponse describeResponse = describeClient.Execute(describeRequest);
             if (describeResponse.StatusCode == HttpStatusCode.OK)
@@ -59,7 +62,7 @@ namespace ChaarrRescueMission.Model
         /// </summary>
         public string Restart()
         {
-            return Send(new Cargo()
+            return Send(new Entity.Cargos.Cargo()
             {
                 Command = Resources.CaptionRestart,
             });
@@ -76,6 +79,13 @@ namespace ChaarrRescueMission.Model
 
             request.AddParameter(Resources.CaptionJsonApp, jsonCargo, ParameterType.RequestBody);
             return request;
+        }
+
+        private RestClient CreateClient(string url)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            var client = new RestClient(url);
+            return client;
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using ChaarrRescueMission.Properties;
+﻿using ChaarrRescueMission.Model.Entity.Cargos;
+using ChaarrRescueMission.Properties;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using System;
 using System.IO;
 
 
@@ -17,9 +19,10 @@ namespace ChaarrRescueMission.Output
         {
             var dlg = new SaveFileDialog
             {
-                FileName = Resources.CaptionFileJsonDefault,
-                DefaultExt = Resources.CaptionFileJsonDot,
-                Filter = Resources.CaptionFileJsonFilter
+                FileName = Resources.CaptionFileLogDefault,
+                DefaultExt = Resources.CaptionFileLogDot,
+                Filter = Resources.CaptionFileLogFilter,
+                InitialDirectory = AppDomain.CurrentDomain.BaseDirectory,
             };
 
             bool? result = dlg.ShowDialog();
@@ -32,6 +35,14 @@ namespace ChaarrRescueMission.Output
                     serializer.Serialize(file, json);
                 }
             }
+        }
+
+        public static void ToFile(string pathFile, Cargo cargo)
+        {
+            var command = cargo.Command == null ? $"Command = {cargo.Command}" : string.Empty;
+            var parameter = cargo.Parameter == null ? $"Parameter = {cargo.Parameter}" : string.Empty;
+            var value = cargo.Value == null ? $"Value = {cargo.Value}" : string.Empty;
+            File.AppendAllText(pathFile, command + parameter + value);
         }
     }
 }

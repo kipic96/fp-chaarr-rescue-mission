@@ -1,7 +1,7 @@
-﻿using ChaarrRescueMission.Model.Entity;
+﻿using ChaarrRescueMission.Model.Entity.Cargos;
 using ChaarrRescueMission.Properties;
 
-namespace ChaarrRescueMission.Model.Factory
+namespace ChaarrRescueMission.Model.Cargos
 {
     public class CargoFactory
     {

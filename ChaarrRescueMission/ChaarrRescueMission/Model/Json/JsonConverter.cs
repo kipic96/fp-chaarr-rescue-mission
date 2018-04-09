@@ -1,4 +1,5 @@
 ﻿using ChaarrRescueMission.Model.Entity;
+using ChaarrRescueMission.Model.Entity.Cargos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -23,7 +24,7 @@ namespace ChaarrRescueMission.Model.Json
         /// <summary>
         /// Conversion from Cargo object to Json string
         /// </summary>
-        public static string Parse(Cargo cargo)
+        public static string Parse(Entity.Cargos.Cargo cargo)
         {
             return JsonConvert.SerializeObject(cargo, Formatting.Indented,
                 new JsonSerializerSettings

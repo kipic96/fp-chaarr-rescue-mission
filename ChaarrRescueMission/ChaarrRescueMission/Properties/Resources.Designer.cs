@@ -61,15 +61,6 @@ namespace ChaarrRescueMission.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string CaptionAppTitle {
-            get {
-                return ResourceManager.GetString("CaptionAppTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Asteroids.
         /// </summary>
         internal static string CaptionAsteroids {
@@ -324,27 +315,36 @@ namespace ChaarrRescueMission.Properties {
         /// <summary>
         ///   Looks up a localized string similar to jsonOutput.json.
         /// </summary>
-        internal static string CaptionFileJsonDefault {
+        internal static string CaptionFileLogDefault {
             get {
-                return ResourceManager.GetString("CaptionFileJsonDefault", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogDefault", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ..
         /// </summary>
-        internal static string CaptionFileJsonDot {
+        internal static string CaptionFileLogDot {
             get {
-                return ResourceManager.GetString("CaptionFileJsonDot", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogDot", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to JSON File (.json)|*.json.
         /// </summary>
-        internal static string CaptionFileJsonFilter {
+        internal static string CaptionFileLogFilter {
             get {
-                return ResourceManager.GetString("CaptionFileJsonFilter", resourceCulture);
+                return ResourceManager.GetString("CaptionFileLogFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogReport.txt.
+        /// </summary>
+        internal static string CaptionFileTitle {
+            get {
+                return ResourceManager.GetString("CaptionFileTitle", resourceCulture);
             }
         }
         

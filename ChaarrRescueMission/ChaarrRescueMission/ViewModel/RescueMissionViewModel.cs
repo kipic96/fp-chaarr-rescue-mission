@@ -1,7 +1,7 @@
 ﻿using ChaarrRescueMission.Enum;
 using ChaarrRescueMission.Model;
+using ChaarrRescueMission.Model.Cargos;
 using ChaarrRescueMission.Model.Entity;
-using ChaarrRescueMission.Model.Factory;
 using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Output;
 using ChaarrRescueMission.Properties;
@@ -30,10 +30,15 @@ namespace ChaarrRescueMission.ViewModel
 
         #endregion Model
 
+        #region Log
+
+        LogManager LogManager { get; set; } = new LogManager();
+
+        #endregion
+
         #region CurrentGameStates
 
         public string Json { get; set; }
-
         public string CurrentRepairing { get; set; } = string.Empty;
         public string CurrentPlace { get; set; } = string.Empty;
         public string CurrentOrderType { get; set; } = string.Empty;
@@ -270,11 +275,14 @@ namespace ChaarrRescueMission.ViewModel
 
         private void ExecuteRequest()
         {
-            Json = _communicationManager.Send(
-                CargoFactory.Create(CurrentAction, CurrentPlace,
+            var cargo = CargoFactory.Create(CurrentAction, CurrentPlace,
                 CurrentRepairing, CurrentProduction,
-                CurrentOrderType, SuppliesValue.ToString()));
+                CurrentOrderType, SuppliesValue.ToString());
+            Json = _communicationManager.Send(cargo);
             GameState = JsonConverter.Parse(Json);
+            LogManager.AddTurnReport(cargo, GameState);
+            if (IsGameTerminated())
+                LogManager.GenerateLog();
         }
 
         private bool CanExecuteRequest()

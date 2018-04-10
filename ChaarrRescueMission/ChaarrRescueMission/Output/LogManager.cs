@@ -3,6 +3,7 @@ using ChaarrRescueMission.Model.Entity.Cargos;
 using ChaarrRescueMission.Properties;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace ChaarrRescueMission.Output
 {
@@ -13,12 +14,16 @@ namespace ChaarrRescueMission.Output
 
         public void AddTurnReport(Cargo command, GameState gameState)
         {
+            if (gameState == null || command == null)
+                return;
             _commandLists.Add(command);
             _gameStates.Add(gameState);
         }
 
         public void AddTurnReport(GameState gameState)
         {
+            if (gameState == null)
+                return;
             _gameStates.Add(gameState);
         }
 
@@ -29,7 +34,7 @@ namespace ChaarrRescueMission.Output
             {
                 FileManager.ToFile(pathFile, _gameStates[i]);
                 if (i < _commandLists.Count)
-                    FileManager.ToFile(pathFile, _commandLists[i], i + 1);                
+                    FileManager.ToFile(pathFile, _commandLists[i], (int)(double.Parse(_gameStates[i].Turn, CultureInfo.InvariantCulture)));                
             }
         }
     }

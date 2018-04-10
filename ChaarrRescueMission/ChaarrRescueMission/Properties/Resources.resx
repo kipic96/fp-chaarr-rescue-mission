@@ -363,4 +363,7 @@
   <data name="CaptionFirstTurn" xml:space="preserve">
     <value>1.0</value>
   </data>
+  <data name="CaptionWebConnectionError" xml:space="preserve">
+    <value>Cannot connect to server: </value>
+  </data>
 </root>

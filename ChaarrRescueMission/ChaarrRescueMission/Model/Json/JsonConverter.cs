@@ -9,11 +9,10 @@ namespace ChaarrRescueMission.Model.Json
         public static GameState Parse(string json)
         {
             var gameState = new GameState();
-            if (json != null)
-            {
-                JToken gameStatusToken = JObject.Parse(json);
-                gameState = JsonConvert.DeserializeObject<GameState>(json);
-            }
+            if (json == null)
+                return null;
+            JToken gameStatusToken = JObject.Parse(json);
+            gameState = JsonConvert.DeserializeObject<GameState>(json);            
             return gameState;
         }
 

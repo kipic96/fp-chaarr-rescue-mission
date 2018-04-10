@@ -797,5 +797,14 @@ namespace ChaarrRescueMission.Properties {
                 return ResourceManager.GetString("CaptionWeapons", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot connect to server: .
+        /// </summary>
+        internal static string CaptionWebConnectionError {
+            get {
+                return ResourceManager.GetString("CaptionWebConnectionError", resourceCulture);
+            }
+        }
     }
 }

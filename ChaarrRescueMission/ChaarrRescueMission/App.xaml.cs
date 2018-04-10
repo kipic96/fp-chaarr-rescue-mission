@@ -14,9 +14,10 @@ namespace ChaarrRescueMission
             try
             {
                 var context = new RescueMissionViewModel();
+                context.OnStartup();
                 var app = new ApplicationView();                
                 app.Show();
-                app.DataContext = context;
+                app.DataContext = context;                
             }
             catch (Exception ex)
             {

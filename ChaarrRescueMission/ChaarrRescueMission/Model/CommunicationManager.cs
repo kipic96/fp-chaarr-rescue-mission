@@ -22,19 +22,15 @@ namespace ChaarrRescueMission.Model
             IRestResponse executeResponse = executeClient.Execute(executeRequest);
             
             if (executeResponse.StatusCode != HttpStatusCode.OK)
-                return executeResponse.ErrorMessage;
+                throw new WebException(Resources.CaptionWebConnectionError + ExecuteConnectionString);
 
             var describeClient = CreateClient(DescribeConnectionString);
             var describeRequest = new RestRequest(Method.GET);
             IRestResponse describeResponse = describeClient.Execute(describeRequest);
             if (describeResponse.StatusCode == HttpStatusCode.OK)
-            {
                 return describeResponse.Content;
-            }
             else
-            {
-                return describeResponse.ErrorMessage;
-            }
+                throw new WebException(Resources.CaptionWebConnectionError + DescribeConnectionString);
         }
 
         /// <summary>

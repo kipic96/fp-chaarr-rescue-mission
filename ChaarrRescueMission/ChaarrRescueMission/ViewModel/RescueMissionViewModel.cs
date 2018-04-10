@@ -7,35 +7,24 @@ using ChaarrRescueMission.Model.Json;
 using ChaarrRescueMission.Output;
 using ChaarrRescueMission.Properties;
 using ChaarrRescueMission.ViewModel.Base;
+using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ChaarrRescueMission.ViewModel
 {
     class RescueMissionViewModel : BaseViewModel
     {
-        #region Constructor
-
-        public RescueMissionViewModel()
-        {
-            _communicationManager = CommunicationFactory.Create(GameType.Chaarr);
-            Json = _communicationManager.Restart();
-            GameState = JsonConverter.Parse(Json);
-            LogManager = new LogManager();
-            LogManager.AddTurnReport(GameState);
-        }
-
-        #endregion Constructor
-
         #region Model
 
         private CommunicationManager _communicationManager;
 
-        #endregion Model
+        #endregion 
 
         #region Log
 
-        LogManager LogManager { get; set; }
+        LogManager LogManager { get; set; } = new LogManager();
 
         #endregion
 
@@ -117,7 +106,7 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        #endregion CurrentGameStates
+        #endregion 
 
         #region ViewDataSources
 
@@ -176,7 +165,7 @@ namespace ChaarrRescueMission.ViewModel
             Resources.CaptionRetreat
         };
 
-        #endregion ViewDataSources
+        #endregion 
 
         #region ControlsEnablingFlags
 
@@ -215,7 +204,7 @@ namespace ChaarrRescueMission.ViewModel
             get { return (CurrentAction == Resources.CaptionOrder); }
         }
 
-        #endregion ControlsEnablingFlags
+        #endregion 
 
         #region Commands
 
@@ -263,7 +252,25 @@ namespace ChaarrRescueMission.ViewModel
             }
         }
 
-        #endregion Commands
+        #endregion 
+
+        #region Methods
+
+        public void OnStartup()
+        {
+            _communicationManager = CommunicationFactory.Create(GameType.Chaarr);
+            try
+            {
+                Json = _communicationManager.Restart();                
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                return;
+            }
+            GameState = JsonConverter.Parse(Json);
+            LogManager.AddTurnReport(GameState);
+        }
 
         #region Private Methods
 
@@ -272,7 +279,15 @@ namespace ChaarrRescueMission.ViewModel
             var cargo = CargoFactory.Create(CurrentAction, CurrentPlace,
                 CurrentRepairing, CurrentProduction,
                 CurrentOrderType, SuppliesValue.ToString());
-            Json = _communicationManager.Send(cargo);
+            try
+            {
+                Json = _communicationManager.Send(cargo);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                return;
+            }            
             GameState = JsonConverter.Parse(Json);
             LogManager.AddTurnReport(cargo, GameState);
             if (IsGameTerminated())
@@ -299,8 +314,9 @@ namespace ChaarrRescueMission.ViewModel
 
         private bool IsGameTerminated()
         {
-            return (bool.Parse(GameState.IsTerminated) == true ||
-                GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred);
+            return ((GameState.IsTerminated != null && GameState.Parameters != null)
+                && (bool.Parse(GameState.IsTerminated) == true ||
+                GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred));
         }
 
         private bool IsGameWantedToRestart()
@@ -317,6 +333,8 @@ namespace ChaarrRescueMission.ViewModel
                    (RepairingEnabled && CurrentRepairing == string.Empty));
         }
 
-        #endregion Private Methods
+        #endregion
+
+        #endregion
     }
 }

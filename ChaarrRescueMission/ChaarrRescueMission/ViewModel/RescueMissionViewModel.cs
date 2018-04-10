@@ -24,7 +24,7 @@ namespace ChaarrRescueMission.ViewModel
 
         #region Log
 
-        LogManager LogManager { get; set; }
+        LogManager LogManager { get; set; } = new LogManager();
 
         #endregion
 
@@ -269,7 +269,6 @@ namespace ChaarrRescueMission.ViewModel
                 return;
             }
             GameState = JsonConverter.Parse(Json);
-            LogManager = new LogManager();
             LogManager.AddTurnReport(GameState);
         }
 

@@ -20,7 +20,7 @@ namespace ChaarrRescueMission.Output
             using (TextWriter textWriter = new StreamWriter(pathFile, append: true))
             {
                 textWriter.WriteLine(turnString + command + parameter + value + Environment.NewLine);
-            }            
+            }
         }
 
         public static void ToFile(string pathFile, GameState gameState)

@@ -315,7 +315,8 @@ namespace ChaarrRescueMission.ViewModel
 
         private bool IsGameTerminated()
         {
-            return (GameState != null && (bool.Parse(GameState.IsTerminated) == true ||
+            return ((GameState.IsTerminated != null && GameState.Parameters != null)
+                && (bool.Parse(GameState.IsTerminated) == true ||
                 GameState.Parameters.ChaarrHatred == Resources.CaptionMaxChaarrHatred));
         }
 
